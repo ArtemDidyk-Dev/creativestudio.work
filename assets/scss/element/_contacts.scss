@@ -1,0 +1,171 @@
+.contacts {
+    &__wrapper {
+        h1 {
+            font-size: 32px;
+            @media #{$mq-tablet} {
+                font-size: 29px;
+            }
+
+        }
+        display: flex;
+        justify-content: space-between;
+        @media #{$mq-mobile} {
+            margin-top: 20px;
+            flex-direction: column;
+        }
+    }
+    &__left {
+        max-width: 560px;
+        width: 100%;
+        padding: 45px 55px;
+        border-radius: 16px;
+        background: $color-white;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+        margin-right: 20px;
+        @media #{$mq-mobile} {
+            max-width: 100%;
+            margin-right: 0px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+    }
+    
+    &__right {
+        @media #{$mq-mobile} {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__info-subtitle {
+        margin-top: 20px;
+        @media #{$mq-mobile} {
+            margin-top: 10px;
+        }
+    }
+    
+    &__info-line {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 25px;
+        color: $color-title;
+        font-size: 16px;
+        @media #{$mq-mobile} {
+           margin-top: 15px;
+        }
+    }
+
+    &__info-line-img {
+        margin-right: 8px;
+    }
+    
+    &-socials {
+        display: flex;
+        &.offset-top {
+            margin-top: 35px;
+            @media #{$mq-mobile} {
+                margin-top: 20px;
+             }
+        }
+    }
+    &-form {
+        margin-top: 70px;
+        border-radius: 16px;
+        background: $color-second;
+        padding: 40px  55px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        h2 {
+            font-size: 26px;
+            color: $color-white;
+        }
+        &__top {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -17px;
+            justify-content: flex-start;
+            margin-top: 17px;
+            .contacts-form__top-element {
+                flex-basis: calc(33.3333% - 17px);
+                margin-left: 17px;
+                .input-wrapper-label {
+                    font-size: 14px;
+                    color: $color-white;
+                    font-weight: 600;
+                    line-height: 20px;
+                }
+                .input-wrapper {
+                    border-radius: 8px;
+                    border: none;
+                }
+                .input-text {
+                    border-radius: 8px;
+                }
+                @media (max-width:767px) {
+                    flex-basis: 100%;
+                    
+                }
+            }
+            @media (max-width:767px) {
+                .contacts-form__top-element + .contacts-form__top-element {
+                    margin-top: 15px;
+                }
+            }
+        }
+        &__bottom {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+           
+            .contacts-form__top-element {
+                max-width: 747px;
+                width: 100%;
+                .input-wrapper-label {
+                    font-size: 14px;
+                    color: $color-white;
+                    font-weight: 600;
+                    line-height: 20px;
+                }
+                .input-wrapper {
+                    border-radius: 8px;
+                    border: none;
+                }
+                .input-textarea {
+                    border-radius: 8px;
+                    resize: none;
+                }
+            }
+            .btn-filter {
+                max-width: 365px;
+                margin-left: 17px;
+                border: none;
+                &:hover {
+                    background: $color-white;
+                    color: $color-four;
+                    border: none;
+                }
+            }
+            @media (max-width:767px) {
+                flex-direction: column;
+                .contacts-form__top-element {
+                    margin-bottom: 20px;
+                }
+                .btn-filter {
+                    margin-left: 0px;
+                    max-width: 100%;
+                }
+            }
+        }
+        .result {
+            margin-top: 20px;
+            P {
+                color: $color-white;
+            }
+        }
+        @media #{$mq-mobile} {
+            margin-top: 30px;
+            padding: 15px;
+        }
+    }
+}

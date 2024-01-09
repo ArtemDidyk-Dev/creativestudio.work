@@ -1,0 +1,179 @@
+.footer {
+    padding: 40px 0px 25px;
+    background: var(--back-card, #F6F6F6);
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        @media (max-width: 1060px){
+            flex-direction: column;
+        }
+    } 
+    &__left {
+        max-width: 171px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+        @media (max-width: 1060px){
+            margin-right: 10px;
+            margin-top: 30px;
+        }
+    }  
+    &__left-logo {
+        font-size: 24px;
+        line-height: 22px;
+        @extend %font-800-nunito-sans;
+        color: $color-second;
+        @media #{$mq-tablet} {
+            font-size: 21px;
+            line-height: 0px;
+        }
+    } 
+    &__left-copyright {
+        margin-top: 15px    ;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #5C5C5C;
+    }
+    &__left-social {
+        margin-top: 35px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        flex-basis: 25%;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $color-second;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+        }
+        @media #{$mq-mobile-sm} {
+            margin-top: 20px;
+        }
+    }
+
+    &__right {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-left: -50px;
+        flex-wrap: nowrap;
+        max-width: 1009px;
+        @media #{$mq-tablet} {
+            margin-left: -20px;
+        }
+        @media (max-width: 1060px){
+            margin-top: 30px;
+        }
+        @media (max-width: 700px){
+            margin-left: -10px;
+            flex-wrap: wrap;
+        }
+        
+    }
+
+    &__right-item {
+        margin-left: 50px;
+        flex-basis: calc(25% - 50px);
+        @media #{$mq-tablet} {
+            margin-left: 20px;
+            flex-basis: calc(25% - 20px);
+        }
+
+        @media (max-width: 700px){
+            flex-basis: calc(50% - 10px);
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+        
+        &.contacts {
+            flex-basis: calc(35% - 50px);
+            @media #{$mq-tablet} {
+                margin-left: 20px;
+                flex-basis: calc(35% - 20px);
+            }
+            @media (max-width: 700px){
+                flex-basis: calc(50% - 10px);
+                margin-left: 10px;
+                word-break: break-all;
+            }
+        }
+    }
+
+    &__right-item-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #98A2B3;
+        display: block;
+        margin-bottom: 18px;
+        @media #{$mq-mobile-sm} {
+            font-size: 12px;
+            line-height: 16px; 
+            margin-bottom: 10px;
+        }
+    }
+
+    &__right-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        li {
+            min-width: 152px;
+            a {
+                font-size: 17px;
+                color: #161C2D;
+                font-weight: 600;
+                line-height: 23px;
+                transition: all 0.3s;
+                &:hover {
+                    color: $color-second;
+                }
+                @media #{$mq-mobile-sm} {
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+        }
+        @media (max-width: 1060px){
+            li {
+                min-width: 100%;
+            }
+        }
+        @media #{$mq-mobile-sm} {
+            gap: 9px;
+        }
+    }
+
+    &__contacts-item  {
+
+        a {
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 600;
+            color: #161C2D;
+            display: flex;
+            align-items: flex-start;
+            .contacts-info-line-img {
+                margin-right: 10px;
+                @media (max-width: 700px){
+                    margin-right: 0px;
+                    width: 19px;    
+                }
+                   
+            }
+            @media #{$mq-mobile-sm} {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+
+    }
+    &__contacts-item + &__contacts-item   {
+        margin-top: 12px;
+    }
+}

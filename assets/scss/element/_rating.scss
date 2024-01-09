@@ -1,0 +1,21 @@
+.rating-stars-bg {
+	background-image: url('/build/website/images/icons/star-grey.svg');
+	background-size: 15px 15px;
+	width: 75px;
+	height: 15px;
+	margin-right: 10px;
+}
+
+.rating-stars {
+	background-image: url('/build/website/images/icons/star.svg');
+	background-size: 15px 15px;
+	height: 100%;
+}
+
+.rating-number {
+	color: var(--black, #111);
+	font-size: 12px;
+	font-weight: 600;
+	margin-top: 4px;
+	margin-left: 2px;
+}
