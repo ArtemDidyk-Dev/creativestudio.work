@@ -9,7 +9,17 @@
     }
 
     &__left {
-        min-width: 281px;
+        min-width: 381px;
+        border-radius: 20px;
+        background: var(--white, #FFF);
+        box-shadow: 0px 4px 32px 0px rgba(114, 67, 118, 0.10);
+        padding: 15px 20px;
+        height: 100%;
+
+        @media #{$mq-mobile} {
+            min-width: 100%;
+            padding: 12px;
+        }
     }
 
     &__left-content {
@@ -48,7 +58,7 @@
 
     &__right>div {
         border-radius: 16px;
-        background: $color-white;
+
         padding: 25px;
 
         @media #{$mq-mobile} {
@@ -69,56 +79,113 @@
 
 .freelancer {
     &-profile-img {
-        width: 120px;
-        height: 120px;
-        border-radius: 16px;
-        margin: 0 auto;
+        border-radius: 8px;
+        width: 100px;
+        height: 100px;
+
+        @media #{$mq-mobile} {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &-profile-details-top {
+        display: flex;
+    }
+
+    &-profile-details-left {
+        align-self: self-end;
+        margin-left: 20px;
+        @media #{$mq-mobile} {
+            margin-left: 12px;
+        }
     }
 
     &-profile-details {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
         margin-top: 16px;
 
         h1 {
-            font-size: 17px;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 34px;
+            margin-bottom: 3px;
+            @media #{$mq-mobile} {
+                font-size: 16px;
+                line-height: 24px
+            }
         }
 
     }
 
     &-profile-title {
-        font-size: 20px;
-        line-height: 30px;
+        font-size: 24px;
         font-weight: 600;
-        margin-bottom: 6px;
+        line-height: 34px;
+        margin-bottom: 3px;
     }
 
     &-profile-subtitle {
         font-size: 13px;
-        line-height: 20px;
-        font-weight: 600;
-        margin-bottom: 10px;
+        line-height: 18px;
+        font-weight: 400;
+        margin-bottom: 12px;
+        @media #{$mq-mobile} {
+            font-size: 12px;
+            margin-bottom: 6px;
+
+        }
     }
 
     &-profile-tags {
         display: flex;
         width: 100%;
-        justify-content: center;
         align-items: center;
-
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 32px;
+        margin-top: 12px;
         .profile-tag {
-            margin-left: 8px;
-            font-size: 12px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 13px;
             font-style: normal;
-            font-weight: 700;
+            font-weight: 400;
             line-height: 16px;
-            padding: 7px 16px;
-            background: rgba(172, 20, 243, 0.10);
-            color: $color-second;
+            padding: 5px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--stroke-2, #E9E9E9);
+            background: var(--white, #FFF);
+            color: $color-title;
             border-radius: 8px;
+
+            img {
+                margin-right: 8px;
+            }
+        }
+        @media #{$mq-mobile} {
+            gap: 8px;
+            margin-top: 10px;
+            margin-bottom: 29px;
+            .profile-tag {
+                font-size: 12px;
+            }
+        }
+    }
+
+    &-profile-tags-title {
+        margin-top: 32px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        @media #{$mq-mobile} {
+            margin-top: 30px;
+            font-size: 15px;
         }
     }
 
@@ -132,6 +199,7 @@
     @media (max-width: 400px) {
 
         a {
+            font-size: 12px;
             overflow-wrap: break-word;
             word-wrap: break-word;
             word-break: break-word;
@@ -145,16 +213,12 @@
     margin-bottom: 8px;
 }
 
-.single-profile-link.offset {
-    margin-bottom: 26px;
-    margin-top: 15px;
-}
 
 .single-profile-link-a {
-    color: $color-second;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+    color: $color-four;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
     margin-right: 12px;
 }
 
@@ -208,9 +272,13 @@
 }
 
 .single-title {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 28px;
+    margin-bottom: 12px;
+    @media #{$mq-mobile} {
+        font-size: 16px;
+    }
 }
 
 .single-separator {
@@ -265,7 +333,7 @@
 }
 
 .single-freelancer-portfolio-elm {
-    border-radius: 20px;
+    border-radius: 16px;
     height: 190px;
     padding: 60px 0 12px;
     display: flex;
@@ -290,7 +358,7 @@
 }
 
 .single-freelancer-portfolio-elm-blue {
-    background: rgba(172, 20, 243, 0.60);
+    background: rgba(179, 77, 117, 0.70);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -300,6 +368,7 @@
     pointer-events: none;
     opacity: 0;
     transition: 0.3s;
+
 }
 
 .single-freelancer-portfolio-elm-ico {
@@ -323,6 +392,7 @@
     border-radius: 8px;
     opacity: 0;
     transition: 0.3s;
+    margin: 0 10px;
 }
 
 .single-freelancer-portfolio-elm:hover>.single-freelancer-portfolio-elm-blue,
@@ -332,9 +402,9 @@
 }
 
 .single-freelancer-review {
-    padding: 16px;
-    background-color: #F5F5F5;
-    border-radius: 12px;
+    padding: 0px 16px 16px 16px;
+    border-bottom: 1px solid var(--stroke-2, #E9E9E9);
+    background: var(--white, #FFF);
     margin-bottom: 12px;
 }
 
@@ -346,10 +416,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 22px;
     margin-bottom: 4px;
-    font-weight: 600;
+    font-weight: 700;
 
 }
 
@@ -365,7 +435,7 @@
 }
 
 .single-freelancer-review-text {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 22px;
 }
 
@@ -404,27 +474,12 @@
     align-items: center;
 }
 
-.profile-tag {
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 16px;
-    padding: 7px 16px;
-    background: rgba(172, 20, 243, 0.1);
-    color: $color-second;
-    border-radius: 8px;
-    margin-top: 12px;
-}
 
-.profile-tag+.profile-tag {
-    margin-left: 8px;
-
-}
 
 .single-project-description-btns {
-    a+a {
-        margin-top: 10px;
-    }
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
 }
 
 .modal {
@@ -434,7 +489,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 9 !important;
 }
 
 .modal.fade {
@@ -851,4 +906,23 @@ textarea.form-control {
             margin-right: 8px;
         }
     }
+}
+
+.single-overview {
+    background: $color-white;
+}
+
+.single-freelancer-portfolio {
+    background: $color-white;
+}
+
+.single-freelancer-review__wrapper {
+    border-radius: 16px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 4px 32px 0px rgba(114, 67, 118, 0.10);
+}
+@media #{$mq-mobile} {
+  .content {
+    font-size: 15px;
+  }
 }

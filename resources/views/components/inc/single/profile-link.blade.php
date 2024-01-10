@@ -1,6 +1,6 @@
 <div class="single-profile-link {{$class ?? ''}}">
 	<a href="{{$slot}}" class="single-profile-link-a">
-		{{$slot}}
+		{{ Str::limit($slot, 29, '...') }}
 	</a>
 	<img src="/images/icons/copy.svg" alt="" class="single-profile-link-copy" onclick="copyLink(this)">
 </div>
@@ -14,7 +14,7 @@ function copyLink(elm) {
 	const oldText = link.innerHTML.trim()
 	
 	const input = document.createElement('input');
-	input.value = oldText;
+	input.value = link.getAttribute('href');
 	document.body.appendChild(input);
 	input.select();
 	document.execCommand('copy');
@@ -22,6 +22,7 @@ function copyLink(elm) {
 
 	link.textContent = 'Link Copied!';
 	setTimeout(function() {
+		
 		link.textContent = oldText;
 	}, 1500);
 }

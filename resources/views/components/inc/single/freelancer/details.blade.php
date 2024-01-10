@@ -1,19 +1,3 @@
-<h3>{{ language('Information:') }}</h3>
-<x-inc.single.text-line title="{{ language('Rating') }}">
-    <x-inc.previews.rating ratingStars="{{ $rating }}" ratingCount="{{ $ratingCount }}" />
-</x-inc.single.text-line>
-<x-inc.single.text-line title="{{ language('Location') }}">
-    @if ($geoImg)
-        <img class="details-country-img" height="16" src="{{ $geoImg }}" alt="{{ $geo }}">
-    @endif
-    {{ $geo }}
-</x-inc.single.text-line>
-<x-inc.single.text-line title="{{ language('Member Since') }}">
-    {{ $data }}
-</x-inc.single.text-line>
-<x-inc.single.text-line title="{{ language('Gender') }}">
-    {{ $gender }}
-</x-inc.single.text-line>
 <div class="single-project-description-btns">
     @if (auth()->check())
         @if (\App\Services\CommonService::userRoleId(auth()->id()) == 3)
