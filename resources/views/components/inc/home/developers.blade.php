@@ -23,6 +23,7 @@
                             position="{{ $freelancer->user_category_name }}"
                             countryIco="{{ $freelancer->user_country_image }}"
                             country="{{ $freelancer->user_country_name }}"
+                            data="{{ $freelancer->created_at->format('M d, Y') }}"
                             ratingCount="{{ $freelancer->reviews_count }}"
                             ratingStars="{{ $freelancer->average_rating }}" jobType="{{ $freelancer->time_rate }}"
                             price="{{ $freelancer->hourly_rate > 0 ? $freelancer->hourly_rate . ' ' . language('Hourly') : language('Bidding Price') }}"

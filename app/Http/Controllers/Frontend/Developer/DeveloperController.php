@@ -19,7 +19,7 @@ class DeveloperController extends Controller
 
     public function index(Request $request)
     {
-        
+
         $user_id = Auth::id();
 
         $filter = [];
@@ -42,11 +42,11 @@ class DeveloperController extends Controller
 
         $freelancer_filter = [
             'language_id' => $request->languageID,
-            'limit' => 9,
+            'limit' => 10,
         ];
         $freelancer_filter = array_merge($freelancer_filter, $filter);
         $freelancers = User::getFreelancer($freelancer_filter);
-        
+
         if ($freelancers) {
 
             $freelancer_favourites_arr = [];
@@ -70,7 +70,7 @@ class DeveloperController extends Controller
             }
         }
 
-       
+
         $freelancersMinMaxPrice = User::getFreelancerMinMaxPrice();
 
         $countries_filter = [
@@ -92,6 +92,13 @@ class DeveloperController extends Controller
                 return isset($filter['country']) && $filter['country'] == $country->id;
             })
             ->first();
+
+        $firstElementCategory = $userCategories
+            ->filter(function ($categories) use ($filter) {
+                return isset($filter['user_category']) && $filter['user_category'] == $categories->id;
+            })
+            ->first();
+
         $selectCountries = $countries->map(function ($country) {
             return [
                 'title' => $country->name,
@@ -99,15 +106,18 @@ class DeveloperController extends Controller
             ];
         });
 
-        return view('pages.freelancers.list', compact(
-            'freelancers',
-            'freelancersMinMaxPrice',
-            'countries',
-            'userCategories',
-            'filter',
-            'selectCountries',
-            'firstElementCountry'
-        )
+        return view(
+            'pages.freelancers.list',
+            compact(
+                'freelancers',
+                'freelancersMinMaxPrice',
+                'countries',
+                'userCategories',
+                'filter',
+                'selectCountries',
+                'firstElementCountry',
+                'firstElementCategory'
+            )
         );
     }
 

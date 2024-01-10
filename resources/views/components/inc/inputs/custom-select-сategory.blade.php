@@ -6,9 +6,10 @@
 </div>
 <div class="custom-select-options">
     <div class="custom-select-options-scrollable">
+        @dd($values)
         @foreach ($values as $item)
-            <div class="custom-select-option" data-value="{{ $item['value'] ??  $item['id'] }}">
-                {{ $item['title'] ?? $item['name']  }}
+            <div class="custom-select-option" data-value="{{ $item['value'] }}">
+                {{ $item['title'] }}
             </div>
         @endforeach
     </div>
@@ -16,3 +17,4 @@
 <select name="{{$name}}" class="form-control select">
 	<option value="{{ $default['value'] ?? ($values[0]['value'] ?? '') }}"></option>
 </select>
+

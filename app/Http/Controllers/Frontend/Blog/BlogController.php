@@ -32,7 +32,7 @@ class BlogController extends Controller
         $title = empty($page->title) ? $page->name : $page->title;
         $decription = $page->description;
         $keywords = $page->keyword;
-        $data =  Carbon::parse($page->updated_at);
+        $data =  Carbon::parse($page->updated_at)->format('d M Y');
         $breadcrumbs = [
             [
                 'title' => 'Blog',
@@ -45,6 +45,7 @@ class BlogController extends Controller
         return view('pages.blog.standart', compact(
             'content',
             'page',
+            'data',
             'h1',
             'title',
             'decription',
