@@ -106,12 +106,10 @@ class ProfileController extends Controller
             foreach ($getReviews as $review) {
                 $diffInDays = \Carbon\Carbon::parse($review->created_at)->diffInDays();
                 $showDiff = \Carbon\Carbon::parse($review->created_at)->diffForHumans();
-                if ($diffInDays > 0) {
-                    $showDiff .= ', ' . \Carbon\Carbon::parse($review->created_at)->addDays($diffInDays)->diffInHours() . ' Hours';
-                }
                 $review->review = str_replace("\r\n", "<br />", $review->review);
                 $review->rating_view = number_format($review->rating, 1, ".", "" );
-                $review->created_at_view = $showDiff;
+                $review->created_at_view =  \Carbon\Carbon::parse($review->created_at)->format('M d, Y');
+              
                 $review->user_profile_photo = !empty($review->user_profile_photo) ? asset('storage/profile/'. $review->user_profile_photo) : asset('storage/no-photo.jpg');
                 $reviews[] = $review;
 

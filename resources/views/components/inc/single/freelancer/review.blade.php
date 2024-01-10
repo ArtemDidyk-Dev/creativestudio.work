@@ -1,7 +1,4 @@
 <div class="single-freelancer-review">
-	<x-inc.single.title class="single-overview-title-reviews">
-		{{ language('Reviews') }}
-	</x-inc.single.title>
 	<div class="single-freelancer-review-title">
 		{{$name}}
 		<div class="single-freelancer-review-title-date">
@@ -9,7 +6,7 @@
 		</div>
 	</div>
 	<div class="single-freelancer-review-rating">
-		<x-inc.previews.rating
+		<x-inc.previews.rating-full
 			ratingStars="{{$rating}}"
 		/>
 	</div>
