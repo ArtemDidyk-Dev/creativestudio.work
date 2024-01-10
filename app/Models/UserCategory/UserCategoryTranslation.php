@@ -21,10 +21,10 @@ class UserCategoryTranslation extends Model
     public function scopeActive($query)
     {
          return $query->with(['userCategory' =>function($q) {
-            $q->where(['role_id' => 4]);
+            $q->where(['role_id' => 4, 'status' => 1]);
          }])
          ->whereHas('userCategory', function($q) {
-            $q->where(['role_id' => 4]);
+            $q->where(['role_id' => 4, 'status' => 1]);
          })
          ->with(['users' => function($q) {
             $q->with("reviews")->where(['status' => 1, 'approve' => 1]);
