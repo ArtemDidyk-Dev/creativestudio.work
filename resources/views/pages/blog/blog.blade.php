@@ -8,7 +8,7 @@
                 'link' => '/',
             ],
         ]" />
-        <div class="blog">
+        <div class="blogs">
             <h1>
                 {{ language('Feature Blog') }}
             </h1>
