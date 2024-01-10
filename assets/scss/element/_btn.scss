@@ -81,13 +81,18 @@
         transition: all 0.3s;
         border: none;
         padding: 12px 20px;
-        font-weight: 700;
-        font-size: 14px;
+        font-weight: 800;
         width: 100%;
         border-radius: 50px;
-        border: 2px solid $color-second;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        svg {
+            margin-left: 12px;
+        }
         &:hover {
-            border: 2px solid $color-four;
+            background: $color-third;
         }
     }
     &-with-image{

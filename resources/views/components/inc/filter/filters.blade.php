@@ -1,7 +1,8 @@
 @php($minPrice = (int) (isset($filter['minPrice']) && $filter['minPrice'] > 0 ? $filter['minPrice'] : $minMaxPrice['minPrice']))
 @php($maxPrice = (int) (isset($filter['maxPrice']) && $filter['maxPrice'] > 0 ? $filter['maxPrice'] : $minMaxPrice['maxPrice']))
 
-<form class="filters" action="{{ $action }}" method="GET" data-min="{{$minPrice}}" data-max="{{$maxPrice}}">
+<form class="filters" action="{{ $action }}" method="GET" data-min="{{ $minPrice }}"
+    data-max="{{ $maxPrice }}">
     <h3 class="filters-title h3">
         {{ language('Filters') }}
     </h3>
@@ -27,6 +28,15 @@
             </x-inc.inputs.input>
         </div>
     @endif
+
+    <div class="filters-input-wrapper">
+        <x-inc.inputs.input label="{{ language('Category') }}">
+            <x-inc.inputs.custom-select :default="[
+                'title' => $firstElementCategory->name ?? language('Select Category'),
+                'value' => $firstElementCategory->id ?? '',
+            ]" :values="$selectCategories" name="user_category" />
+        </x-inc.inputs.input>
+    </div>
 
 
     <div class="filters-input-prices">

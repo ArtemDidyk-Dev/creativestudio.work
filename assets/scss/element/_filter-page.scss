@@ -15,11 +15,12 @@
             margin-right: 0px;
         }
     }
+
     &__right {
         width: 100%;
         .no-result {
             @extend %font-700-nunito-sans;
-            color: $color-second;
+            color: $color-five;
         }
     }
 
@@ -28,8 +29,8 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         margin-left: -25px;
-
         .projects__item {
+            margin-left: 25px;
             flex-basis: calc(50% - 25px);
 
             @media ($mq-mobile) {
@@ -37,10 +38,8 @@
             }
         }
         .developers__item {
-            flex-basis: calc(33.333% - 25px);
-            @media ($mq-tablet) {
-                flex-basis: calc(50% - 25px);
-            }
+            margin-left: 25px;
+            flex-basis: calc(50% - 25px);
             @media ($mq-mobile-sm) {
                 flex-basis: 100%;
             }
@@ -69,10 +68,10 @@
     }
 
     h3 {
-        font-size: 20px;
+        font-size: 24px;
         font-style: normal;
-        font-weight: 700;
-        line-height: 22px;
+        font-weight: 600;
+        line-height: 34px;
     }
 
     &-title {
@@ -95,7 +94,7 @@
 .clear-all {
     font-weight: 600;
     font-size: 14px;
-    color: $color-second;
+    color: $color-five;
     text-decoration: none;
     position: absolute;
     right: 20px;

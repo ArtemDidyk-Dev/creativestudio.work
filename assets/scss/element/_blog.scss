@@ -1,4 +1,7 @@
 .blog {
+    border-radius: 20px;
+    border: 1px solid var(--stroke-2, #E9E9E9);
+    background: var(--back-light, #FBFBFB);
     h1 {
         font-size: 32px;
         @media #{$mq-tablet} {
@@ -6,15 +9,13 @@
         }
     }
     .content {
+        padding: 15px;
         img {
             border-radius: 16px;
         }
         &__block {
-            max-width: calc(100% - 45px);
-            box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.1);
-            padding: 50px;
-            margin-top: 20px;
-            background: $color-white;
+            max-width: 100%;
+            padding: 35px;
             width: 100%;
             border-radius: 16px;
             z-index: 999;
@@ -22,16 +23,25 @@
             margin-left: auto;
             margin-right: auto;
             @media #{$mq-mobile} {
-                padding: 10px;
-                max-width: calc(100% - 20px);
+                padding: 0px;
+                max-width: 100%;
             }
             @media (max-width: 767px) {
                 margin-top: 20px;
-                padding: 0px;
-                background: none;
-                box-shadow: none;
                 max-width: 100%;
             }
+        }
+        &__block-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 24px;
+            @media #{$mq-mobile} {
+                margin-bottom: 19px;
+                margin-top: 19px;
+            }
+        }
+        @media #{$mq-mobile} {
+            padding: 10px;
         }
     }
 }

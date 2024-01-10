@@ -27,8 +27,8 @@
     }
 
     &-item {
-        background-color: #F5F5F5;
         border-radius: 4px;
+        border: 1.6px solid var(--pink, #B34D75);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -38,7 +38,7 @@
         margin: 0 12.5px;
         font-size: 15px;
         transition: 0.3s;
-        color: $color-title;
+        color: $color-second;
       
     }
 

@@ -338,8 +338,7 @@
     background: $color-second;
     color: var(--white, #FFF);
     text-align: center;
-    @extend %font-600-nunito-sans;
-    font-family: 'Nunito Sans';
+    font-weight: 700;
     font-size: 14px;
     font-style: normal;
     line-height: 20px;

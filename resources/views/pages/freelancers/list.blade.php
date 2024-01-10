@@ -13,8 +13,8 @@
             @endif
             <div class="filter__wrapper">
                 <div class="filter__left">
-                    <x-inc.filter.filters route="{{ route('frontend.developer.index') }}" :firstElementCountry="$firstElementCountry" :filter="$filter"
-                    :countries="$countries" :minMaxPrice="$freelancersMinMaxPrice" :selectCountries="$selectCountries" action="{{ route('frontend.developer.index') }}" />
+                    <x-inc.filter.filters route="{{ route('frontend.developer.index') }}" :firstElementCountry="$firstElementCountry" :firstElementCategory="$firstElementCategory" :filter="$filter"
+                    :countries="$countries" :minMaxPrice="$freelancersMinMaxPrice" :selectCategories="$userCategories" :selectCountries="$selectCountries" action="{{ route('frontend.developer.index') }}" />
                 </div>
                 <div class="filter__right">
                     @if ($freelancers && $freelancers->total() > 0)
@@ -29,7 +29,9 @@
                             countryIco="{{ $freelancer->user_country_image }}"
                             country="{{ $freelancer->user_country_name }}"
                             ratingCount="{{ $freelancer->reviews_count }}"
-                            ratingStars="{{ $freelancer->average_rating }}" jobType="{{ $freelancer->time_rate }}"
+                            ratingStars="{{ $freelancer->average_rating }}" 
+                            jobType="{{ $freelancer->time_rate }}"
+                            data="{{ $freelancer->created_at->format('M d, Y') }}"
                             price="{{ $freelancer->hourly_rate > 0 ? $freelancer->hourly_rate . ' ' . language('frontend.currency') . ' ' . language('Hourly') : language('Bidding Price') }}"
                             link="{{ route('frontend.profile.index', $freelancer->id) }}" />
                         @endforeach
