@@ -12,7 +12,7 @@
                     @if (!empty(json_decode(setting('social'))))
                         @foreach (json_decode(setting('social')) as $key => $value)
                             <a href="{{ $value->link }}" target="_blank" rel="nofollow" class="footer-social-link">
-                                <img src="/images/icons/{{ $value->name }}.svg" alt="{{ $value->name }}"
+                                <img  loading="lazy" src="/images/icons/{{ $value->name }}.svg" alt="{{ $value->name }}"
                                     class="footer-social-link-img">
                             </a>
                         @endforeach
@@ -50,7 +50,7 @@
                         <div class="footer__contacts-item">
                             @if (!empty(setting('email')))
                                 <a href="mailto:{{ setting('email') }}" class="contacts-info-line">
-                                    <img src="/images/icons/contacts-email-white.svg" alt=""
+                                    <img loading="lazy" src="/images/icons/contacts-email-white.svg" alt=""
                                         class="contacts-info-line-img">
                                     <div class="contacts-info-line-text">
                                         {{ setting('email') }}
@@ -61,7 +61,7 @@
                         <div class="footer__contacts-item">
                             @if (!empty(setting('address', true)))
                                 <a href="{{ setting('map') }}" class="contacts-info-line">
-                                    <img src="/images/icons/contacts-location-white.svg" alt=""
+                                    <img loading="lazy" src="/images/icons/contacts-location-white.svg" alt=""
                                         class="contacts-info-line-img">
                                     <div class="contacts-info-line-text">
                                         {{ setting('address', true) }}
