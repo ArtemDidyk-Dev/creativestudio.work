@@ -1,5 +1,5 @@
 <div class="posts__item">
-    <img src="{{ asset($photo) }}" alt="" class="posts__item-img">
+    <img src="{{ asset($photo) }}" alt="" class="posts__item-img" loading="lazy">
     <div class="posts__item-body">
         <div class="posts__item-data">
             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">

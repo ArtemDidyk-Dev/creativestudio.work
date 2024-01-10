@@ -17,7 +17,7 @@
                            
                             <div class="projects__item-box element-{{$loop->iteration}}">
                                 <div class="projects__box-element">
-                                    <img width="250" height="210"
+                                    <img loading="lazy" width="250" height="210"
                                         src="{{ !empty($users->profile_photo)
                                             ? asset('storage/profile/' . $users->profile_photo)
                                             : asset('storage/no-photo.jpg') }}"
@@ -56,13 +56,13 @@
                         <div class="projects__item-box link">
                             <div class="projects__item-link-inner">
                                 <div class="projects__item-link-box">
-                                    <img width="158" height="158" src="{{ asset('build/website/images/other/item-link-1.png') }}" alt="" >
+                                    <img loading="lazy" width="158" height="158" src="{{ asset('build/website/images/other/item-link-1.png') }}" alt="" >
                                 </div>
                                 <div class="projects__item-link-box">
-                                    <img width="158" height="158" src="{{ asset('build/website/images/other/item-link-2.png') }}" alt="" >
+                                    <img  loading="lazy"width="158" height="158" src="{{ asset('build/website/images/other/item-link-2.png') }}" alt="" >
                                 </div>
                                 <div class="projects__item-link-box">
-                                    <img width="158" height="158" src="{{ asset('build/website/images/other/item-link-3.png') }}" alt="" >
+                                    <img  loading="lazy" width="158" height="158" src="{{ asset('build/website/images/other/item-link-3.png') }}" alt="" >
                                 </div>
                                 <div class="projects__item-link-box last">
                                     <span>View all specialists in this category</span>
