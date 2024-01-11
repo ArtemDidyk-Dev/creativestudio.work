@@ -39,9 +39,6 @@ class HomeController extends Controller
         $freelancer_filter = [
             'language_id' => $request->languageID,
             'limit' => 9,
-            'sort' => 'DESC',
-            'order' => 'projects_count',
-            'order2' => 'average_rating'
         ];
         $freelancers = User::getFreelancer($freelancer_filter);
         if ($freelancers) {

@@ -2,10 +2,8 @@
     <div class="container">
         <div class="banner__box">
             <div class="banner__box-content">
-                <span>Embrace the freelance revolution 💪
-                    Join us and work anywhere, anytime</span>
-                <p>There's never been a better time to take yourself online and start making money from your very own
-                    fine-tuned set of skills.</p>
+                <span>{{ language('banner_home_title') }}</span>
+                <p>{{ language('banner_home_text') }}</p>
                 <x-inc.btns.link-svg class="full-pink" title="{{ language('Join as a freelancer') }}"
                     href="{{ route('frontend.cabinet.register') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
@@ -17,7 +15,7 @@
             </div>
             <div class="banner__box-right">
                 <img width="577" height="460" loading="lazy"  src="{{ asset('build/website/images/other/banner-bootom.png') }}" alt="">
-                <span class="banner__box-suntext">{{ language('Hey, it’s free for you!') }}</span>
+                <span class="banner__box-suntext">{{ language('banner_plug') }}</span>
             </div>
             
         </div>

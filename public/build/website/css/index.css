@@ -2527,6 +2527,7 @@ input:focus-visible {
   margin-bottom: 35px;
   display: flex;
   flex-direction: column;
+  height: auto;
 }
 .developers__item .preview-user__right span {
   font-size: 17px;
