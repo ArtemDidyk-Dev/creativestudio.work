@@ -6,7 +6,7 @@
             @foreach ($categories as $category)
                 <a href="{{ route('frontend.developer.index', ['user_category' => $category->user_category_id]) }}"
                     class="categories__item">
-                    <img src="{{ $category->userCategory[0]->image ? $category->userCategory[0]->image : 'build/website/images/other/default_image.png' }}"
+                    <img loading="lazy" src="{{ $category->userCategory[0]->image ? $category->userCategory[0]->image : 'build/website/images/other/default_image.png' }}"
                         alt="">
                     <span>{{ $category->name }}</span>
                 </a>
