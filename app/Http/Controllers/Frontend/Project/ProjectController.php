@@ -100,7 +100,7 @@ class ProjectController extends Controller
                         $projects_categories[] = $ProjectsCategory->user_category_name;
                     }
                 }
-                
+
                 $projects[] = [
                     'id' => $project->id,
                     'name' => html_entity_decode($project->name, ENT_QUOTES, 'UTF-8'),
@@ -145,6 +145,12 @@ class ProjectController extends Controller
                 return isset($filter['country']) && $filter['country'] == $country->id;
             })
             ->first();
+
+        $firstElementCategory = $userCategories
+            ->filter(function ($categories) use ($filter) {
+                return isset($filter['user_category']) && $filter['user_category'] == $categories->id;
+            })
+            ->first();
         $selectCountries = $countries->map(function ($country) {
             return [
                 'title' => $country->name,
@@ -152,16 +158,20 @@ class ProjectController extends Controller
             ];
         });
 
-        return view('pages.projects.list', compact(
-            'getProjects',
-            'projects',
-            'getProjectsMinMaxPrice',
-            'countries',
-            'userCategories',
-            'filter',
-            'selectCountries',
-            'firstElementCountry'
-        )
+
+        return view(
+            'pages.projects.list',
+            compact(
+                'getProjects',
+                'projects',
+                'getProjectsMinMaxPrice',
+                'countries',
+                'userCategories',
+                'filter',
+                'selectCountries',
+                'firstElementCountry',
+                'firstElementCategory'
+            )
         );
     }
 
@@ -257,25 +267,27 @@ class ProjectController extends Controller
             $average_rating = number_format($average_rating, 1, ".", "");
         }
 
-        $socials = array_map(function($social) {
-            return  [
+        $socials = array_map(function ($social) {
+            return [
                 'link' => $social->link,
                 'img' => "/images/icons/contacts-$social->name.svg",
             ];
         }, $project->user_social);
-        return view('pages.projects.single', compact(
-            'auth_user',
-            'user',
-            'project',
-            'projects_count',
-            'projects_categories',
-            'proposal',
-            'reviews',
-            'average_rating',
-            'reviews_count',
-            'socials'
-            
-        )
+        return view(
+            'pages.projects.single',
+            compact(
+                'auth_user',
+                'user',
+                'project',
+                'projects_count',
+                'projects_categories',
+                'proposal',
+                'reviews',
+                'average_rating',
+                'reviews_count',
+                'socials'
+
+            )
         );
     }
 
