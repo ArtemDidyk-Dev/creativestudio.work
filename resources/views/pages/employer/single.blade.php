@@ -21,6 +21,11 @@
 		<x-inc.single.employer.profile
 		name="{{$user->name}}"
 		category="{{$user->user_category_name}}"
+		data="{{$user->created_at->format('M d, Y')}}"
+		geo="{{ $user->user_country_name }}"
+		gender="{{ $user->gender == 1 ? language('Male') : language('Famele') }}"
+		rating="{{$average_rating}}"
+		ratingCount="{{$reviews_count}}"
 		profileLink="{{ $user->user_profile_link }}  "
 		rate="{{$user->hourly_rate}}"
 		proflieImg="{{ $user->profile_photo }}"
@@ -28,15 +33,7 @@
 		/>
 	</x-slot>
 	<x-slot  name="profiledescription">
-		<x-inc.single.employer.details
-		data="{{$user->created_at->format('M d, Y')}}"
-		rating="{{$average_rating}}"
-		ratingCount="{{$reviews_count}}"
-		name="{{$user->name}}"
-		established="{{$user->established}}"
-		categoryName="{{$user->user_category_name}}"
-		owner="{{$user->owner}}"
-		/>
+		
 	</x-slot>
 	<x-slot name="overview">
 		<x-inc.single.employer.overview
@@ -47,7 +44,7 @@
 		/>
 	</x-slot>
 	<x-slot name="about">
-		<x-inc.single.employer.projects :projects="$projects" />
+	
 	</x-slot>
 	<x-slot name="modal">
 
