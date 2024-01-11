@@ -12,8 +12,8 @@
             @endif
             <div class="filter__wrapper">
                 <div class="filter__left">
-                    <x-inc.filter.filters route="{{ route('frontend.project.index') }}" :firstElementCountry="$firstElementCountry"
-                        :filter="$filter" :countries="$countries" :minMaxPrice="$getProjectsMinMaxPrice" :selectCountries="$selectCountries"
+                    <x-inc.filter.filters route="{{ route('frontend.project.index') }}" :firstElementCountry="$firstElementCountry" :firstElementCategory="$firstElementCategory" 
+                        :filter="$filter" :countries="$countries" :selectCategories="$userCategories" :minMaxPrice="$getProjectsMinMaxPrice" :selectCountries="$selectCountries"
                         action="{{ route('frontend.project.index') }}" />
                 </div>
               

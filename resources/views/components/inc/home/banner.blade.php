@@ -15,6 +15,11 @@
                     </svg>
                 </x-inc.btns.link-svg>
             </div>
+            <div class="banner__box-right">
+                <img width="577" height="460" loading="lazy"  src="{{ asset('build/website/images/other/banner-bootom.png') }}" alt="">
+                <span class="banner__box-suntext">{{ language('Hey, it’s free for you!') }}</span>
+            </div>
+            
         </div>
     </div>
 </section>
