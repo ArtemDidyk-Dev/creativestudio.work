@@ -8,7 +8,7 @@
                 <h2>{{ language('choose.home.title') }}</h2>
                 <div class="choose__content-item">
                     <div class="choose__item-title">
-                        <img width="24" height="24" src="{{ asset('build/website/images/icons/choose.svg') }}" alt="" class="cchoose__item-icon">
+                        <img width="24" height="24" loading="lazy"src="{{ asset('build/website/images/icons/choose.svg') }}" alt="" class="cchoose__item-icon">
                         <span>{{ language('choose.home.first.sub.title') }}</span>
                     </div>
                     <p>{{ language('choose.home.first.text') }}</p>
