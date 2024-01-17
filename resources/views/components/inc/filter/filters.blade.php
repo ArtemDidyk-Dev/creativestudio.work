@@ -24,16 +24,18 @@
                 <x-inc.inputs.custom-select :default="[
                     'title' => $firstElementCountry->name ?? language('Select Country'),
                     'value' => $firstElementCountry->id ?? '',
+                    'index' => 0
                 ]" :values="$selectCountries" name="country" />
             </x-inc.inputs.input>
         </div>
     @endif
-
+ 
     <div class="filters-input-wrapper">
         <x-inc.inputs.input label="{{ language('Category') }}">
             <x-inc.inputs.custom-select :default="[
                 'title' => $firstElementCategory->name ?? language('Select Category'),
                 'value' => $firstElementCategory->id ?? '',
+                'index' => 1
             ]" :values="$selectCategories" name="user_category" />
         </x-inc.inputs.input>
     </div>

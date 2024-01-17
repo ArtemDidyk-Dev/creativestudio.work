@@ -10,14 +10,11 @@
                 color="transparent" classMod="projectAddFavorite"
             image="{{ asset('build/website/images/icons/favourite.svg') }}" title="{{ language('Favourite') }}" />
             @endif
-            <x-inc.btns.profile link="javascript:void(0)" classMod="model-active" color="transparent"
-                image="{{ asset('build/website/images/icons/send.svg') }}" title="{{ language('Send Invite') }}" />
         @endif
     @else   
         <x-inc.btns.profile link="{{ route('frontend.login.index') }}" color="transparent"
             image="{{ asset('build/website/images/icons/favourite.svg') }}" title="{{ language('Favourite') }}" />
-        <x-inc.btns.profile link="{{ route('frontend.login.index') }}" color="transparent"
-            image="{{ asset('build/website/images/icons/send.svg') }}" title="Send Proposal" />
+       
     @endif
 </div>
 

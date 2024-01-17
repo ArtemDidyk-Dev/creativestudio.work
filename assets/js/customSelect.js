@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 function setOptionCustomSelect(elm) {
     const wrapper = elm.parentElement.parentElement.previousElementSibling
+    const indexSelect = +wrapper.getAttribute("data-index");
     const select = wrapper.firstElementChild
-    const selectForm = document.querySelector('.form-control.select');
-    selectForm.options[0].value = elm.dataset.value;
+    const selectForms = document.querySelectorAll('.form-control.select');
+    selectForms[indexSelect].options[0].value = elm.dataset.value;
     select.dataset.value = elm.dataset.value
     select.innerHTML = elm.innerHTML.trim()
     wrapper.classList.remove('active')

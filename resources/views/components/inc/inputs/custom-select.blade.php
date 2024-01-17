@@ -1,4 +1,4 @@
-<div class="custom-select-wrapper" onclick="this.classList.toggle('active')" >
+<div class="custom-select-wrapper" onclick="this.classList.toggle('active')" data-index={{$default['index']}} >
     <div class="custom-select" data-value="{{ $default['value'] ?? ($values[0]['value'] ?? '') }}">
         {{ $default['title'] ?? ($values[0]['title'] ?? '') }}
     </div>
