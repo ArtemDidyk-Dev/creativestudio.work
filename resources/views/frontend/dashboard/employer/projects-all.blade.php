@@ -27,10 +27,7 @@
                             <div class="col-md-6">
                                 <h3>{{ language('Manage Projects') }}</h3>
                             </div>
-                            <div class="col-md-6 text-end">
-                                <a href="{{ route('frontend.dashboard.employer.employerProjectAdd') }}"
-                                   class="btn btn-primary back-btn mb-4">{{ language('Post a Project') }}</a>
-                            </div>
+                            
                         </div>
                     </div>
 

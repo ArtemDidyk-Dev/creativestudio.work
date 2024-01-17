@@ -106,19 +106,7 @@
                                                     class="text-danger">{{ $message }}</span> @enderror
                                                 <p class="light-pink-text mb-0">{{ language('Provide your time rate') }} <u>{{ language('Example: Full Time') }}</u></p>
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="gender">{{ language('Gender') }}</label>
-                                                <select class="form-control select" name="gender" id="gender">
-                                                    <option
-                                                        {{ old('gender',$user->gender) == 0 ? 'selected':null }} value="0">{{ language('frontend.common.select') }}</option>
-                                                    <option
-                                                        {{ old('gender',$user->gender) == 1 ? 'selected':null }} value="1">{{ language('frontend.edit_profile.male') }}</option>
-                                                    <option
-                                                        {{ old('gender',$user->gender) == 2 ? 'selected':null }} value="2">{{ language('frontend.edit_profile.famale') }}</option>
-                                                </select>
-                                                @error('gender' )<span
-                                                    class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
+                                            
                                         </div>
                                         <div class="form-row pro-pad pt-0">
                                             <div class="form-group col-md-6 pro-pic">
@@ -150,35 +138,18 @@
                                                 <p>{{ language('Image size 300*300, formats (jpg,jpeg,png)') }}</p>
                                             </div>
 
-                                            <div class="form-group col-md-6 pro-pic">
-                                                <label>{{ language('Banner Image') }}</label>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="upload-images" style="width:auto;">
-                                                        <img
-                                                            src="{{ !empty($user->banner_image) ? asset('storage/profile/'. $user->banner_image) : asset('storage/no-photo.jpg') }}"
-                                                            alt="" id="crop-item-img-outputBanner">
-                                                        @if(!empty($user->banner_image))
-                                                            <a href="javascript:void(0);" id="notPhotoBanner"
-                                                               class="btn btn-icon btn-danger btn-sm"
-                                                               title="{{ language('frontend.edit_profile.delete_photo') }}"><i
-                                                                    class="far fa-trash-alt"></i></a>
-                                                        @endif
-                                                    </div>
-                                                    <label class="file-upload image-upbtn ms-3"
-                                                           style="position:absolute;">
-                                                        {{ language('Change Image') }} <input type="file" class="crop-item-imgBanner"
-                                                                            name="banner_image">
-                                                    </label>
-                                                </div>
-                                                <input type="text" name="banner_image_upload"
-                                                       value="{{ old('banner_image_upload') }}"
-                                                       class="fileUploadBanner">
-                                                <input type="text" name="not_photoBanner" class="notPhotoBanner">
-                                                <div class="alert alert-danger mt-3  cropImgErrorBanner"></div>
-                                                @error('banner_image' )
-                                                <div class="alert alert-my-danger">{{ $message }}</div>
-                                                @enderror
-                                                <p>{{ language('Image size 1024*100, formats (jpg,jpeg,png)') }}</p>
+                                            <div class="form-group col-md-6">
+                                                <label for="gender">{{ language('Gender') }}</label>
+                                                <select class="form-control select" name="gender" id="gender">
+                                                    <option
+                                                        {{ old('gender',$user->gender) == 0 ? 'selected':null }} value="0">{{ language('frontend.common.select') }}</option>
+                                                    <option
+                                                        {{ old('gender',$user->gender) == 1 ? 'selected':null }} value="1">{{ language('frontend.edit_profile.male') }}</option>
+                                                    <option
+                                                        {{ old('gender',$user->gender) == 2 ? 'selected':null }} value="2">{{ language('frontend.edit_profile.famale') }}</option>
+                                                </select>
+                                                @error('gender' )<span
+                                                    class="text-danger">{{ $message }}</span> @enderror
                                             </div>
 
                                         </div>
@@ -229,7 +200,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <textarea id="description" name="description" class="form-control"
-                                                          rows="5">{{ old('description', $user->description) }}</textarea>
+                                                          rows="5">{!! old('description', $user->description) !!}</textarea>
                                                 @error('description' )<span
                                                     class="text-danger">{{ $message }}</span> @enderror
                                             </div>

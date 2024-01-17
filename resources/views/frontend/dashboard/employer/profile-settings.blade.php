@@ -81,28 +81,8 @@
                                                 @error('phone' )<span
                                                     class="text-danger">{{ $message }}</span> @enderror
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="user_category">{{ language('Designation') }}</label>
-                                                <select class="form-control select" name="user_category"
-                                                        id="user_category">
-                                                    <option value="">{{ language('frontend.common.select') }}</option>
-                                                    @foreach($user_categories as $user_category)
-                                                        <option
-                                                            {{ old('user_category',$user->user_category) == $user_category->id ? 'selected':null }} value="{{ $user_category->id }}">{{ $user_category->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                @error('user_category' )<span
-                                                    class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="time_rate">{{ language('Established') }}</label>
-                                                <input autocomplete="OFF" id="established" type="date"
-                                                       name="established"
-                                                       value="{{ old('established', $user->established) }}"
-                                                       class="form-control">
-                                                @error('established' )<span
-                                                    class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
+                                            
+                                            
                                         </div>
                                         <div class="form-row pro-pad pt-0">
                                             <div class="form-group col-md-6 pro-pic">
@@ -133,34 +113,16 @@
                                                 @enderror
                                                 <p>{{ language('Image size 300*300, formats (jpg,jpeg,png)') }}</p>
                                             </div>
-
-                                            <div class="form-group col-md-6 pro-pic">
-                                                <label>{{ language('Banner Image') }}</label>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="upload-images" style="width:auto;">
-                                                        <img src="{{ !empty($user->banner_image) ? asset('storage/profile/'. $user->banner_image) : asset('storage/company-bg.jpg') }}" alt="" id="crop-item-img-outputBanner">
-                                                        @if(!empty($user->banner_image))
-                                                            <a href="javascript:void(0);" id="notPhotoBanner"
-                                                               class="btn btn-icon btn-danger btn-sm"
-                                                               title="{{ language('frontend.edit_profile.delete_photo') }}"><i
-                                                                    class="far fa-trash-alt"></i></a>
-                                                        @endif
-                                                    </div>
-                                                    <label class="file-upload image-upbtn ms-3"
-                                                           style="position:absolute;">
-                                                        {{ language('Change Image') }} <input type="file" class="crop-item-imgBanner" name="banner_image">
-                                                    </label>
-                                                </div>
-                                                <input type="text" name="banner_image_upload"
-                                                       value="{{ old('banner_image_upload') }}"
-                                                       class="fileUploadBanner">
-                                                <input type="text" name="not_photoBanner" class="notPhotoBanner">
-                                                <div class="alert alert-danger mt-3  cropImgErrorBanner"></div>
-                                                @error('banner_image' )
-                                                <div class="alert alert-my-danger">{{ $message }}</div>
-                                                @enderror
-                                                <p>{{ language('Image size 1024*100, formats (jpg,jpeg,png)') }}</p>
-                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="time_rate">{{ language('Established') }}</label>
+                                                <input autocomplete="OFF" id="established" type="date"
+                                                       name="established"
+                                                       value="{{ old('established', $user->established) }}"
+                                                       class="form-control">
+                                                @error('established' )<span
+                                                    class="text-danger">{{ $message }}</span> @enderror
+                                            </div>  
+                                            
 
                                         </div>
                                     </div>
@@ -202,122 +164,6 @@
                                     </div>
                                 </div>
 
-                                <!--  SOCIAL START  -->
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row justify-content-between align-items-center">
-                                            <div class="col">
-                                                <h3 class="pro-title without-border">{{ language('Social') }}</h3>
-                                            </div>
-                                            <div class="removeAllSocialicons col-auto">
-                                                <button type="button" class="btn btn-danger btn-sm">{{ language('Delete All') }}</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pro-body">
-                                        <div class="repeaterForm">
-                                            <div class=" row">
-                                                <div data-repeater-list="social"
-                                                     class="col-lg-12 sortableElements socialIconsContainer">
-
-                                                    @if(!$user->social)
-                                                        <div data-repeater-item="" class="form-group row">
-                                                            <div class="col-md-3">
-                                                                <label class="socialIcons">
-                                                                    <input class="socialIconsInput" data-check="0"
-                                                                           type="text"
-                                                                           name="name">
-                                                                    <div data-toggle="modal"
-                                                                         data-target="#iconsModalPopovers"
-                                                                         class="social-icons-container">
-                                                                            <span class="socialIconsItem">
-                                                                                <i></i>
-                                                                            </span>
-                                                                        <span
-                                                                            class="socialIconName">{{ language('Select Icon') }}</span>
-                                                                        <div class="socialIconsArrow">
-                                                                            <i class="fas fa-chevron-down"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </label>
-                                                                <div class="d-md-none mb-2"></div>
-                                                            </div>
-                                                            <div class="col-md-9">
-                                                                <input type="text" class="form-control" name="link"
-                                                                       value=""
-                                                                       placeholder="Link"/>
-                                                                <div class="d-md-none mb-2"></div>
-                                                            </div>
-                                                            <div class="col-md-1 text-right checkDeleteButton">
-                                                                <a href="javascript:;" data-repeater-delete=""
-                                                                   class="btn btn-danger btn-sm">
-                                                                    <i class="la la-trash-o"></i>{{ language('Delete') }}</a>
-                                                            </div>
-                                                        </div>
-                                                    @else
-
-                                                        @foreach($user->social as $key => $value)
-                                                            <div data-repeater-item=""
-                                                                 class="form-group row">
-                                                                <div class="col-md-3">
-                                                                    <label class="socialIcons">
-                                                                        <input class="socialIconsInput" data-check="0"
-                                                                               type="text"
-                                                                               value="{{ isset($value->name) ?
-                                                                               $value->name : null }}"
-                                                                               name="name">
-                                                                        <div data-toggle="modal"
-                                                                             data-target="#iconsModalPopovers"
-                                                                             class="social-icons-container">
-                                                                                <span class="socialIconsItem">
-                                                                                    @if(isset
-                                                                                ($value->name) && !empty($value->name))
-                                                                                        <i class="socicon-{{ isset($value->name) ? $value->name : null }} text-dark-50"></i>
-                                                                                    @else
-                                                                                        <i class="fas fa-ban
-                                                                                    text-dark-50" style="top:0px;"></i>
-                                                                                    @endif
-                                                                                </span>
-                                                                            <span
-                                                                                class="socialIconName">{{ isset($value->name) && !empty($value->name) ? $value->name : 'Select Icon' }}</span>
-                                                                            <div class="socialIconsArrow">
-                                                                                <i class="fas fa-chevron-down"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </label>
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <input type="text" class="form-control" name="link"
-                                                                           value="{{ isset($value->link) ?
-                                                                           $value->link : null }}"
-                                                                           placeholder="Link"/>
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-1 checkDeleteButton"
-                                                                     style="text-align:right;">
-                                                                    <a href="javascript:;" data-repeater-delete=""
-                                                                       class="btn btn-danger btn-sm">
-                                                                        <i class="la la-trash-o"></i>{{ language('Delete') }}</a>
-                                                                </div>
-                                                            </div>
-                                                        @endforeach
-
-                                                    @endif
-
-                                                </div>
-                                            </div>
-                                            <div class=" row">
-                                                <div class="repeatBtn d-flex align-items-end flex-column">
-                                                    <a href="javascript:;" data-repeater-create=""
-                                                       class="btn btn-sm btn-add">
-                                                        {{ language('Add Sosial') }}</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--  SOCIAL END  -->
 
                                 <div class="card">
                                     <div class="pro-head">
@@ -327,7 +173,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <textarea id="description" name="description" class="form-control"
-                                                          rows="5">{{ old('description', $user->description) }}</textarea>
+                                                          rows="5">{!! old('description', $user->description) !!}</textarea>
                                                 @error('description' )<span
                                                     class="text-danger">{{ $message }}</span> @enderror
                                             </div>

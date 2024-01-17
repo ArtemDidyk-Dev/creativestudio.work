@@ -4,7 +4,7 @@
         <div class="container">
             <x-inc.breadcrumbs :items="[
                 [
-                    'title' => 'Freelancers',
+                    'title' => 'Designers',
                     'link' => '/',
                 ],
             ]" />

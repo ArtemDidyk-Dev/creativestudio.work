@@ -53,7 +53,8 @@ class ProfileController extends Controller
         $user->user_profile_link = $request->fullUrl();
 
         if($user->description) {
-            $user->description = str_replace("\n", "<br />", $user->description);
+            $user->description = str_replace("\n", "<br />", html_entity_decode($user->description, ENT_QUOTES, 'UTF-8'));
+           
         }
 
         if ($user->social) {
@@ -164,7 +165,7 @@ class ProfileController extends Controller
                 'average_rating'
             ));
         } else if ($user->role_id == 4) {
-            
+        
             $portfolios = Portfolio::getByUserId($user_id, 999);
             return view('pages.freelancers.single', compact(
                 'auth_user',
@@ -211,7 +212,7 @@ class ProfileController extends Controller
         ];
         $countries = Country::getCountries($countries_filter);
 
-
+        $user->description = html_entity_decode( $user->description, ENT_QUOTES, 'UTF-8');
 
         return view('frontend.dashboard.freelancer.profile-settings', compact(
             'auth_user',
@@ -314,7 +315,7 @@ class ProfileController extends Controller
         $user->postalcode = $postalcode;
         $user->address = $address;
         $user->gender = $gender;
-        $user->description = $description;
+        $user->description = html_entity_decode($description, ENT_QUOTES, 'UTF-8');;
 
 
         //profile_photo
@@ -420,8 +421,9 @@ class ProfileController extends Controller
         if ($user->social) {
             $user->social = json_decode($user->social);
         }
+        
+        $user->description = html_entity_decode( $user->description, ENT_QUOTES, 'UTF-8');
 
-//        @dd($user->social);
 
 
         if ($user == null) {
@@ -459,7 +461,8 @@ class ProfileController extends Controller
 
     public function editEmployerStore(Request $request)
     {
-
+       
+        
         $user_id = (int)$request->user_id;
 
         //CUSTOM VALIDATE START
@@ -487,13 +490,6 @@ class ProfileController extends Controller
 
         }
 
-        //foto format check
-        $image_64 = $request->banner_image_upload; //your base64 encoded data
-        if (!empty($image_64)) {
-            if (!is_base64($image_64)) {
-                $this->validateCheck('banner_image', language('frontend.edit_profile.error_banner_image'));
-            }
-        }
 
         $this->validatorCheck->validate();
 
@@ -503,7 +499,6 @@ class ProfileController extends Controller
         $name = stripinput($request->name);
         $email = stripinput($request->email);
         $phone = stripinput($request->phone);
-        $user_category = (int)$request->user_category;
 
         $country = (int)$request->country;
         $postalcode = stripinput($request->postalcode);
@@ -513,29 +508,12 @@ class ProfileController extends Controller
 
         $description = stripinput(strip_tags($request->description));
 
-        $social = $request->social;
-        $social_arr = [];
-        if (isset($social)) {
-            foreach ($social as $social_key => $social_val) {
-                if (isset($social_val['link']) && !empty($social_val['link'])) {
-                    $social_arr[$social_key] = [
-                        'name' => stripinput($social_val['name']),
-                        'link' => stripinput($social_val['link']),
-                        'status' => isset($social_val['status']) ? $social_val['status'] : false
-                    ];
-                }
-            }
-            $social = json_encode($social_arr);
-        }
-
 
 
         $rules = [
             'email' => 'required|email|unique:users,email,' . $id . '|min:3|max:255',
             'name' => 'required',
             'profile_photo' => 'mimes:jpg,png',
-            'banner_image' => 'mimes:jpg,png',
-            'user_category' => 'required',
             'country' => 'required',
             'phone' => 'required',
         ];
@@ -555,12 +533,10 @@ class ProfileController extends Controller
         $user->established = $established;
         $user->email = $email;
         $user->phone = $phone;
-        $user->user_category = $user_category;
         $user->country = $country;
         $user->postalcode = $postalcode;
         $user->address = $address;
-        $user->description = $description;
-        $user->social = "$social";
+        $user->description = html_entity_decode($description, ENT_QUOTES, 'UTF-8');;
 
 
 
@@ -596,36 +572,7 @@ class ProfileController extends Controller
         }
 
 
-        //banner_image
-        if ($request->hasFile('banner_image')) {
-
-            if (!empty($user->banner_image)) {
-                Storage::delete('public/profile/' . $user->banner_image);
-            }
-
-
-            $image_64 = $request->banner_image_upload; //your base64 encoded data
-            $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
-            $replace = substr($image_64, 0, strpos($image_64, ',') + 1);
-
-            $image = str_replace($replace, '', $image_64);
-            $image = str_replace(' ', '+', $image);
-
-
-            $destinationpath = "public/profile";
-            $imageName = $id . '-' . Str::random(20) . '.jpg';
-            Storage::put($destinationpath . '/' . $imageName, base64_decode($image));
-
-
-            //foto yuklendikden sonra compres et
-            $destinationPathStorage = "storage/profile";
-            compressImgFile($destinationPathStorage . '/' . $imageName, $destinationPathStorage . '/' . $imageName, 80);
-
-
-            //bazaya yaz
-            $user->banner_image = $imageName;
-        }
-
+    
         //Foto Legv olunmushsa
         if($request->not_photo == '1') {
 
@@ -635,18 +582,7 @@ class ProfileController extends Controller
             $user->profile_photo = '';
 
         }
-
-        //Banner Image Legv olunmushsa
-        if($request->not_photoBanner == '1') {
-
-            if (!empty($user->banner_image)) {
-                Storage::delete('public/profile/' . $user->banner_image);
-            }
-            $user->banner_image = '';
-
-        }
-
-
+       
         $user->save();
 
 

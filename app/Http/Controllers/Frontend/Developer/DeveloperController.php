@@ -19,7 +19,7 @@ class DeveloperController extends Controller
 
     public function index(Request $request)
     {
-
+        
         $user_id = Auth::id();
 
         $filter = [];

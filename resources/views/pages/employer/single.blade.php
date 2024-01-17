@@ -7,10 +7,6 @@
 			theme="white"
 			:items="[
 				[
-					'title'	=> 'Projects',
-					'link'	=> route('frontend.project.index'),
-				],
-				[
 					'title'	=> $user->name,
 
 				],

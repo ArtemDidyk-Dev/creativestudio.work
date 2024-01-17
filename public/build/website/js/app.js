@@ -269,9 +269,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 function setOptionCustomSelect(elm) {
   var wrapper = elm.parentElement.parentElement.previousElementSibling;
+  var indexSelect = +wrapper.getAttribute("data-index");
   var select = wrapper.firstElementChild;
-  var selectForm = document.querySelector('.form-control.select');
-  selectForm.options[0].value = elm.dataset.value;
+  var selectForms = document.querySelectorAll('.form-control.select');
+  selectForms[indexSelect].options[0].value = elm.dataset.value;
   select.dataset.value = elm.dataset.value;
   select.innerHTML = elm.innerHTML.trim();
   wrapper.classList.remove('active');

@@ -1,7 +1,7 @@
 
 <div class="single-overview">
 	<x-inc.single.title class="single-overview-title">
-		{{ language('About US') }}
+		{{ language('About') }}
 	</x-inc.single.title>
 	@if ($description)
 	<div class="content">
