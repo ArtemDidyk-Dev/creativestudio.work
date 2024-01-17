@@ -18,7 +18,7 @@
                         <div class="align-items-center justify-content-center">
                             <div class="login-right">
                                 <div class="login-header text-center">
-                                    <a href="{{route('frontend.home.index')}}"><img src="/images/logo.svg" alt="{{ language('general.title') }}" class="img-fluid"></a>
+                                    <a href="{{route('frontend.home.index')}}"><img width="220" height="30" src="{{ asset('build/website/images/logo.png') }}" alt="{{ language('general.title') }}" class="img-fluid"></a>
                                     <h3>{{ language('frontend.login.welcome_back') }}</h3>
                                     <p>{{ language('frontend.login.text1') }}</p>
                                 </div>

@@ -17,7 +17,7 @@
                         </div>
                     </a>
                 @else
-                    <img class="single-freelancer-portfolio-elm-bg" alt="{{ $portfolio->title }}"
+                    <img class="single-freelancer-portfolio-elm" alt="{{ $portfolio->title }}"
                         src="{{ asset('storage/no_image_portfolio.jpg') }}">
                 @endif
             @endforeach

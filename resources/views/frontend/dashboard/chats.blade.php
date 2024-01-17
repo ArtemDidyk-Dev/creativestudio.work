@@ -102,7 +102,7 @@
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name"></div>
                                         <div class="user-status">
-                                            <a href="javascript:void(0)" target="_blank">{{ language('view profile') }}</a>
+                                            <a href="{{ route('frontend.profile.index', $chat['users_id']) }}" target="_blank">{{ language('view profile') }}</a>
                                         </div>
                                     </div>
                                 </div>
