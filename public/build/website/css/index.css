@@ -393,6 +393,15 @@ input:focus-visible {
     font-size: 21px;
     line-height: 0px;
   }
+  .header__logo img {
+    height: auto;
+    max-width: 247px;
+  }
+}
+@media (max-width: 405px) {
+  .header__logo img {
+    max-width: 214px;
+  }
 }
 .header__inner {
   display: flex;
@@ -784,6 +793,9 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   margin-right: 30px;
+}
+.footer__left img {
+  height: auto;
 }
 @media (max-width: 1060px) {
   .footer__left {

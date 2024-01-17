@@ -34,8 +34,18 @@
         color: $color-second;
 
         @media #{$mq-tablet} {
+            img {
+                height: auto;
+                max-width: 247px;
+            }
             font-size: 21px;
             line-height: 0px;
+        }
+        
+        @media (max-width: 405px){
+           img {
+                max-width: 214px;
+           }
         }
     }
 

@@ -3,7 +3,7 @@
         <div class="header__inner">
             <div class="header__left">
                 <a href="{{ route('frontend.home.index') }}" class="header__logo">
-                    Freework
+                    <img width="220" height="30" src="{{ asset('build/website/images/logo.png') }}" alt="logo">
                 </a>
             </div>
             <div class="header__right">
@@ -176,15 +176,20 @@
     }
 
     @media (max-width: 1200px) {
-        .header {
-            margin-left: 15px;
-            margin-right: 15px;
-            padding: 10px;
-            padding-top: 15px;
+        .header__logo {
+            font-size: 21px;
+            line-height: 0px;
         }
 
-        .header .container {
-            padding: 0px;
+        .header__logo img {
+            height: auto;
+            max-width: 247px;
+        }
+    }
+
+    @media (max-width: 405px) {
+        .header__logo img {
+            max-width: 182px;
         }
     }
 
@@ -666,6 +671,10 @@
         display: flex;
         flex-direction: column;
         margin-right: 30px;
+    }
+
+    .footer__left img {
+        height: auto;
     }
 
     @media (max-width: 1060px) {
