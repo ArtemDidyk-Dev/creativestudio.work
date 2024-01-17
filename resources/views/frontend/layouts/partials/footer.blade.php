@@ -2,9 +2,9 @@
   <div class="container">
       <div class="footer__inner">
           <div class="footer__left">
-              <a href="{{ route('frontend.home.index') }}" class="footer__left-logo">
-                  Freework
-              </a>
+            <a href="{{ route('frontend.home.index') }}" class="footer__left-logo">
+                <img width="172" height="30"  src="{{ asset('build/website/images/logo.png') }}" alt="logo">
+            </a>
               <div class="footer__left-copyright">
                   {!! setting('copyright', true) !!}
               </div>

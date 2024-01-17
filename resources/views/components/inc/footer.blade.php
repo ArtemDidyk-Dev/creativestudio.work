@@ -3,7 +3,7 @@
         <div class="footer__inner">
             <div class="footer__left">
                 <a href="{{ route('frontend.home.index') }}" class="footer__left-logo">
-                    Freework
+                    <img width="300" height="30"  src="{{ asset('build/website/images/logo.png') }}" alt="logo">
                 </a>
                 <div class="footer__left-copyright">
                     {!! setting('copyright', true) !!}
