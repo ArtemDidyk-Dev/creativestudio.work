@@ -9,7 +9,7 @@
                 @if (!empty($portfolio->image))
                     <a href="{{ asset('storage/portfolio/' . $portfolio->image) }}"
                         class="single-freelancer-portfolio-elm" data-fancybox="portfolio">
-                        <img class="single-freelancer-portfolio-elm-bg" alt="{{ $portfolio->title }}"
+                        <img class="single-freelancer-portfolio-elm" alt="{{ $portfolio->title }}"
                             src="{{ asset('storage/portfolio/' . $portfolio->image) }}">
                         <div class="single-freelancer-portfolio-elm-blue"></div>
                         <img class="single-freelancer-portfolio-elm-ico" src="/images/icons/zoom.svg" alt="zoom">
@@ -18,7 +18,7 @@
                         </div>
                     </a>
                 @else
-                    <img class="single-freelancer-portfolio-elm-bg" alt="{{ $portfolio->title }}"
+                    <img class="single-freelancer-portfolio-elm alt="{{ $portfolio->title }}"
                         src="{{ asset('storage/no_image_portfolio.jpg') }}">
                 @endif
             @endforeach
