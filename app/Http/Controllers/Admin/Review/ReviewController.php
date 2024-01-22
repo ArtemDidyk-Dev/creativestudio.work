@@ -38,7 +38,6 @@ class ReviewController extends Controller
 
         $reviews = Reviews::select(
                 'reviews.*',
-                'projects.name as project_name',
                 DB::raw("(
                         SELECT users.name
                         FROM users
@@ -52,25 +51,21 @@ class ReviewController extends Controller
                         LIMIT 1
                     ) as reviews_to")
             )
-            ->leftJoin('projects', 'reviews.project_id', '=', 'projects.id')
             ->groupBy('reviews.id')
             ->orderBy('reviews.id', 'DESC')
             ->paginate(15);
 
 //        dd($reviews);
 
-
         return view('admin.review.index', compact('reviews'));
     }
 
     public function add(Request $request)
     {
-        $projects = Projects::get();
-
+        
         $users = User::get();
 
         return view('admin.review.add', compact(
-            'projects',
             'users'
         ));
     }
@@ -81,7 +76,6 @@ class ReviewController extends Controller
 
         $from = (int)$request->from;
         $to = (int)$request->to;
-        $project_id = (int)$request->project_id;
         $rating = (float)$request->rating;
         $review = stripinput($request->review);
 
@@ -89,7 +83,6 @@ class ReviewController extends Controller
         $review = Reviews::addReview([
             'from' => $from,
             'to' => $to,
-            'project_id' => $project_id,
             'rating' => $rating,
             'review' => $review,
         ]);
@@ -107,13 +100,12 @@ class ReviewController extends Controller
             ->first();
 
 
-        $projects = Projects::get();
+       
         $users = User::get();
 
 
         return view('admin.review.edit', compact(
             'review',
-            'projects',
             'users'
         ));
     }
@@ -123,7 +115,7 @@ class ReviewController extends Controller
         $id = (int)$request->id;
         $from = (int)$request->from;
         $to = (int)$request->to;
-        $project_id = (int)$request->project_id;
+        
         $rating = (float)$request->rating;
         $review = stripinput($request->review);
 
@@ -143,7 +135,6 @@ class ReviewController extends Controller
             ->update([
                 'from' => $from,
                 'to' => $to,
-                'project_id' => $project_id,
                 'rating' => $rating,
                 'review' => $review
             ]);

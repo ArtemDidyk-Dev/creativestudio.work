@@ -45,6 +45,7 @@
                                             <a href="javascript:void(0);"
                                                 class="media d-flex chat-user_id_{{ $chat['users_id'] }} @if ($chat['total_messages'] > 0) read-chat active @endif"
                                                 data-user_id="{{ $chat['users_id'] }}"
+                                                data-role_id="{{ $chat['role_id'] }}"
                                                 data-user_profile_photo="{{ $chat['users_profile_photo'] }}"
                                                 data-user_profile_link="{{ route('frontend.profile.index', $chat['users_id']) }}"
                                                 data-user_name="{{ $chat['users_name'] }}"
@@ -804,7 +805,7 @@
             let user_name = $(this).data('user_name');
             let user_profile_link = $(this).data('user_profile_link');
             let chat_delete_link = $(this).data('chat_delete_link');
-
+            let user_role_id = $(this).data('role_id');
             $('.chat-window .chat-cont-right .chat-header').addClass('d-none');
             $('.chat-window .chat-cont-right .chat-body').addClass('d-none');
             $('.chat-window .chat-cont-right .chat-footer').addClass('d-none');
@@ -813,7 +814,13 @@
             $('.chat-window .chat-cont-right .chat-header .avatar-img').attr('alt', user_name);
             $('.chat-window .chat-cont-right .chat-header .user-name').text(user_name);
             // $('.chat-window .chat-cont-right .chat-header .user-status a').attr('href', '/profile/' + user_id);
-            $('.chat-window .chat-cont-right .chat-header .user-status a').attr('href', user_profile_link);
+            if (user_role_id > 2 || user_role_id == 0) {
+                $('.chat-window .chat-cont-right .chat-header .user-status a').attr('href', user_profile_link);    
+                $('.chat-window .chat-cont-right .chat-header .user-status a').css("display", "block");
+            }
+            else {
+                $('.chat-window .chat-cont-right .chat-header .user-status a').css("display", "none");
+            }
 
             @if ($user->role_id < 3)
                 $('.chat-window .chat-cont-right .chat-header .chat-options .dropdown_view_profile').attr('href',

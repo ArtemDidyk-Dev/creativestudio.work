@@ -107,7 +107,7 @@ class ProfileController extends Controller
             foreach ($getReviews as $review) {
                 $diffInDays = \Carbon\Carbon::parse($review->created_at)->diffInDays();
                 $showDiff = \Carbon\Carbon::parse($review->created_at)->diffForHumans();
-                $review->review = str_replace("\r\n", "<br />", $review->review);
+                $review->review = str_replace("\r\n", "<br />", html_entity_decode($review->review, ENT_QUOTES, 'UTF-8'));
                 $review->rating_view = number_format($review->rating, 1, ".", "" );
                 $review->created_at_view =  \Carbon\Carbon::parse($review->created_at)->format('M d, Y');
               
@@ -123,7 +123,7 @@ class ProfileController extends Controller
             $average_rating = number_format($average_rating, 1, ".", "" );
         }
 
-//        @dd($reviews);
+
 
 
 

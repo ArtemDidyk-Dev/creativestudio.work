@@ -20,9 +20,11 @@ class Reviews extends Model
             'reviews.*',
             'users.id as user_id',
             'users.name as user_name',
-            'users.profile_photo as user_profile_photo'
+            'users.profile_photo as user_profile_photo',
+            'model_has_roles.role_id',
         )
             ->leftJoin('users', 'reviews.from', '=', 'users.id')
+            ->join('model_has_roles', 'reviews.from', '=', 'model_has_roles.model_id')
             ->where('reviews.to', $user_id)
             ->where('reviews.project_id', $project_id)
             ->get();
@@ -97,7 +99,6 @@ class Reviews extends Model
 
         $from = (int)$data['from'];
         $to = (int)$data['to'];
-        $project_id = (int)$data['project_id'];
         $rating = (float)$data['rating'];
         $review = stripinput(strip_tags($data['review']));
 
@@ -105,7 +106,6 @@ class Reviews extends Model
         $reviews = Reviews::create([
             'from' => $from,
             'to' => $to,
-            'project_id' => $project_id,
             'rating' => $rating,
             'review' => $review
         ]);

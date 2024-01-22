@@ -58,6 +58,7 @@ class ChatsController extends Controller
                 'id' => $chat->id,
                 'date' => $showDiff,
                 'users_id' => $chat->users_id,
+                'role_id' => User::getUser($chat->users_id)->role_id ?? 0,
                 'users_name' => $chat->users_name,
                 'users_profile_photo' => !empty($chat->users_profile_photo) ? asset('storage/profile/' . $chat->users_profile_photo) : asset('storage/no-photo.jpg'),
                 'last_messages' => $chat->last_messages,

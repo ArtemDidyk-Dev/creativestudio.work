@@ -113,16 +113,6 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <span class="span-dvidder">Project</span>
-                                                            <select form="submit-form" class="form-control" name="project_id">
-                                                                <option value="">-=Select=-</option>
-                                                                @foreach($projects as $project)
-                                                                    <option {{ old('project_id') == $project->id ? 'selected' : '' }} value="{{ $project->id }}">{{ $project->name }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="form-group">
                                                             <span class="span-dvidder">Rating</span>
                                                             <input type="number" name="rating" min="0" max="5" step="0.5" value="{{ old('rating') }}" class=" form-control">
                                                         </div>

@@ -28,7 +28,7 @@ class PageController extends Controller
             abort(404);
         }
 
-        $content = $page->text;
+        $content = html_entity_decode( $page->text, ENT_QUOTES, 'UTF-8');;
         $h1 = $page->name;
         $title = empty($page->title) ? $page->name : $page->title;
         $decription = $page->description;
