@@ -13,7 +13,7 @@ class BlogController extends Controller
     {
         
         $blogs = Blog::getBlogs($request->languageID, 9);
-
+        
         return view('pages.blog.blog', compact(
             'blogs',
         )
@@ -27,7 +27,7 @@ class BlogController extends Controller
             return redirect()->back();
         }
 
-        $content = $page->text;
+        $content = html_entity_decode( $page->text, ENT_QUOTES, 'UTF-8');;
         $h1 = $page->name;
         $title = empty($page->title) ? $page->name : $page->title;
         $decription = $page->description;

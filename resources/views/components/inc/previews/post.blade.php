@@ -13,13 +13,13 @@
 			{{$data}}
         </div>
         <a href="{{ $link }}" class="posts__item-title">
-            {{ $title }}
+            {!! $title !!}
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
 				<path d="M8 16.3202L16 8.32019M16 8.32019H8M16 8.32019V16.3202" stroke="#111111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
 			</svg>
         </a>
         <p class="posts__item-escription">
-            {{ $description }}
+            {!! $description !!}
         </p>
     </div>
 </div>

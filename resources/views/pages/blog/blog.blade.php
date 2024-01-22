@@ -16,8 +16,8 @@
                 <div class="posts__inner">
                     @foreach ($blogs as $blog)
                         <x-inc.previews.post photo="{{ empty($blog->image) ? asset('storage/no-image.png') : \App\Services\ImageService::resizeImageSize($blog->image, 'medium', 80) }}"
-                            title="{{$blog->name}}"
-                            description="{{$blog->description}}"
+                            title="{!! $blog->name !!}"
+                            description="{!! $blog->description !!}"
                             data="{{$blog->updated_at->format('d M Y')}}"
                             link="{{ route('frontend.blog.detail', $blog->slug) }}" />
                     @endforeach

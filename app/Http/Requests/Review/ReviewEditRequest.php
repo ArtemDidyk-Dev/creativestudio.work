@@ -17,7 +17,6 @@ class ReviewEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'project_id' => 'required|integer|exists:projects,id',
             'rating' => 'required',
             'from' => 'required|integer|exists:users,id',
             'to' => 'required|integer|exists:users,id',
