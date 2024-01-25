@@ -1918,6 +1918,7 @@ input:focus-visible {
   .projects__right {
     margin-top: 20px;
     margin-left: 0px;
+    overflow-x: scroll;
   }
 }
 .projects__item {
@@ -1930,7 +1931,8 @@ input:focus-visible {
 }
 @media (max-width: 1200px) {
   .projects__item {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-width: 540px;
   }
 }
 .projects__item-box {

@@ -71,6 +71,7 @@
         @media #{$mq-tablet} {
             margin-top: 20px;
             margin-left: 0px;
+            overflow-x: scroll;
         }
     }
 
@@ -84,7 +85,8 @@
         }
 
         @media #{$mq-tablet} {
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            min-width: 540px;
         }
 
     }
