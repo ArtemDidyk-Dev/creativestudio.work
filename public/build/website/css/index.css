@@ -1932,7 +1932,7 @@ input:focus-visible {
 @media (max-width: 1200px) {
   .projects__item {
     flex-wrap: nowrap;
-    min-width: 600px;
+    min-width: 540px;
   }
 }
 .projects__item-box {
