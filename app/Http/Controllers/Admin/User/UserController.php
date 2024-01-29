@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
-
+use App\Models\Chats\ChatMessages;
+use App\Models\Chats\Chats;
 class UserController extends Controller
 {
 
@@ -205,6 +206,20 @@ class UserController extends Controller
 //        $user->date_of_birth = $date_of_birth;
 
         $user->save();
+        $user_from = 1;
+        $user_to = (int)$user->id;
+        $message = language('Welcome to our platform, if you have any questions write to us.');
+        $file = "";
+        $chat = Chats::getChat($user_from, $user_to);
+        if (!$chat) {
+            Chats::createChat($user_from, $user_to);
+        }
+        ChatMessages::addMessages($user_from, $user_to, $message, $file);
+
+        $request->session()->put('chat_user_to', $user_to);
+
+        $data['status'] = true;
+        $data['message'] = language('frontend.register.verified');
 
 
         return redirect()->route('admin.user.index');
