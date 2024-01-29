@@ -109,7 +109,7 @@ class User extends Authenticatable
 
     public static function getFreelancer($filter = [])
     {
-
+      
         $user = User::select(
             'users.*',
             'model_has_roles.role_id',
@@ -153,7 +153,8 @@ class User extends Authenticatable
 
         if (isset($filter['keyword']) && !empty($filter['keyword'])) {
             $user = $user->where('users.name', 'LIKE', "%". stripinput(strip_tags($filter['keyword'])) ."%")
-                ->orWhere('users.description', 'LIKE', "%". stripinput(strip_tags($filter['keyword'])) ."%");
+                ->orWhere('users.description', 'LIKE', "%". stripinput(strip_tags($filter['keyword'])) ."%")
+                ->where('users.status', 1);
         }
         if (isset($filter['minPrice']) && !empty($filter['minPrice']) && $filter['minPrice'] > 0) {
             $user = $user->where('users.hourly_rate', '>=', (float)$filter['minPrice']);
