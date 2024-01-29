@@ -40,7 +40,7 @@
                             <div class="chat-users-list">
                                 <div class="chat-scroll">
 
-                                    @if ($chats)
+                                    @if (!empty($chats))
                                         @foreach ($chats as $chat)
                                             <a href="javascript:void(0);"
                                                 class="media d-flex chat-user_id_{{ $chat['users_id'] }} @if ($chat['total_messages'] > 0) read-chat active @endif"
@@ -103,7 +103,9 @@
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name"></div>
                                         <div class="user-status">
-                                            <a href="{{ route('frontend.profile.index', $chat['users_id']) }}" target="_blank">{{ language('view profile') }}</a>
+                                            @if (!empty($chat))
+                                                <a href="{{ route('frontend.profile.index', $chat['users_id']) }}" target="_blank">{{ language('view profile') }}</a> 
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
