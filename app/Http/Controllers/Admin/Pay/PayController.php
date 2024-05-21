@@ -94,5 +94,19 @@ class PayController extends Controller
         return response()->json(['success' => true], 200);
 
     }
+    
+    public function edit(Pay $pay)
+    {
+
+        return view('admin.pay.edit', compact('pay'));
+    }
+
+    public function update(Pay $pay, Request $request)
+    {
+        $payment = $request->status;
+        $pay->status = $payment;
+        $pay->save();
+       return redirect()->route('admin.pay.index');
+    }
 
 }

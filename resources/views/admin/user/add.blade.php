@@ -89,7 +89,7 @@
                                                     </div>
                                                 </div>
 
-                                                <!--Şifrə-->
+                                                <!--Şifr-->
                                                 <div class="form-group row">
                                                     <label for="password" class="col-lg-3 col-form-label">Password</label>
                                                     <div class="col-lg-9">
@@ -105,6 +105,14 @@
                                                         <input id="password_confirmation" type="password" name="password_confirmation"
                                                                {{ old('password_confirmation') }} class="form-control form-control-lg" placeholder="Confirm Password"/>
                                                         @error('password_confirmation' )<span class="text-danger">{{ $message }}</span> @enderror
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group row">
+                                                    <label for="password_confirmation" class="col-lg-3 col-form-label">Balance</label>
+                                                    <div class="col-lg-9">
+                                                        <input id="password_confirmation" type="number" name="balance" value="0.00"
+                                                               class="form-control form-control-lg" placeholder="Balance"/>
                                                     </div>
                                                 </div>
 

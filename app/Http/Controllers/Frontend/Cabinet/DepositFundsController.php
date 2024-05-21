@@ -31,7 +31,7 @@ class DepositFundsController extends Controller
         $pays = [];
         if ($getPays) {
             foreach ($getPays as $getPay) {
-                $getPay->created_at_view = Carbon::parse($getPay->created_at)->format('M d, Y');
+                 $getPay->created_at_view = Carbon::parse($getPay->created_at)->format('Y-m-d H:i:s');
                 $getPay->amount_view = $getPay->amount ? number_format($getPay->amount, 2, ".", " ") : 0;
                 $pays[] = $getPay;
             }

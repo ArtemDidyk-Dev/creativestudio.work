@@ -79,13 +79,13 @@ class UserController extends Controller
 
     public function store(AdminAddUserRequest $request)
     {
+        $balance = $request->balance;
         $name = stripinput($request->name);
         $email = stripinput($request->email);
         $password = $request->password;
         $roles = $request->roles;
         $status = $request->status > 0 ? (int)$request->status : 0;
         $approve = $request->approve > 0 ? (int)$request->approve : 0;
-
         $user_category = (int)$request->user_category;
         $phone = stripinput($request->phone);
         $description = strip_tags($request->description);
@@ -110,7 +110,7 @@ class UserController extends Controller
 
 
         if ($roles == 1) {
-            $this->validateCheck('roles', 'Bu icazə sistemdə mövcud deyil.');
+            $this->validateCheck('roles', 'Bu icazə sistemdə mvcud deyil.');
         }
 
 
@@ -123,6 +123,7 @@ class UserController extends Controller
 
         }
 
+
         $this->validatorCheck->validate();
         //CUSTOM VALIDATE END
 
@@ -133,7 +134,8 @@ class UserController extends Controller
             'password' => bcrypt($password),
             'status' => $status,
             'approve' => $approve,
-
+            'balance' => $balance,
+            'range_price' => (!empty($range)  ? json_encode($range, JSON_FORCE_OBJECT) : null)
 //            'user_category' => $user_category,
 //            'phone' => $phone,
 //
@@ -145,7 +147,6 @@ class UserController extends Controller
 //            'gender' => $gender,
 //            'date_of_birth' => $date_of_birth,
         ]);
-
         $user->syncRoles($roles);
 
 
@@ -204,7 +205,7 @@ class UserController extends Controller
 
         $user->gender = $gender;
 //        $user->date_of_birth = $date_of_birth;
-
+        $user->approve = $approve;
         $user->save();
         $user_from = 1;
         $user_to = (int)$user->id;
@@ -284,7 +285,6 @@ class UserController extends Controller
         $roles = $request->roles;
         $status = $request->status > 0 ? (int)$request->status : 0;
         $approve = $request->approve > 0 ? (int)$request->approve : 0;
-
         $user_category = (int)$request->user_category;
         $phone = stripinput($request->phone);
         $description = stripinput($request->description);
@@ -292,7 +292,7 @@ class UserController extends Controller
         $address = stripinput($request->address);
         $postalcode = stripinput($request->postalcode);
 
-
+        $balance = $request->balance;
         $owner =  $roles == 3 ? stripinput($request->owner) : "";
         $established =  $roles == 3 ? stripinput($request->established) : "";
         $longitude = $roles == 3 ? (float)$request->longitude : "";
@@ -412,7 +412,6 @@ class UserController extends Controller
         $user->email = $email;
         $user->status = $status;
         $user->approve = $approve;
-
         $user->user_category = $user_category;
         $user->phone = $phone;
         $user->description = $description;
@@ -425,7 +424,7 @@ class UserController extends Controller
         $user->longitude = $longitude;
         $user->latitude = $latitude;
         $user->postalcode = $postalcode;
-
+        $user->balance = $balance;
         $user->gender = $gender;
         $user->hourly_rate = $hourly_rate;
         $user->time_rate = $time_rate;
@@ -556,7 +555,7 @@ class UserController extends Controller
         //Eger gonderilen ID sehfdirse
         $refererError = CommonService::refererError($id);
         if ($refererError) {
-            $this->validateCheck('refererID', 'Səhf ID istifadə etdiniz!');
+            $this->validateCheck('refererID', 'Səhf ID istifad etdiniz!');
 
         }
 
@@ -565,7 +564,7 @@ class UserController extends Controller
         $image_64 = $request->profile_photo_upload; //your base64 encoded data
         if (!empty($image_64)) {
             if (!is_base64($image_64)) {
-                $this->validateCheck('profile_photo', 'Sehf foto formatı.İcazə verilən formatlar (jpg,jpeg və png)');
+                $this->validateCheck('profile_photo', 'Sehf foto formatı.İcaz verilən formatlar (jpg,jpeg və png)');
             }
 
         }
@@ -573,14 +572,14 @@ class UserController extends Controller
         //Foto Legv olunmushsa
         if($request->not_photo == '1'){
 
-                $user = User::where('id', Auth::id())
-                    ->first();
+            $user = User::where('id', Auth::id())
+                ->first();
 
-                if (!empty($user->profile_photo)) {
-                    Storage::delete('public/profile/' . $user->profile_photo);
-                }
-                $user->profile_photo = '';
-                $user->save();
+            if (!empty($user->profile_photo)) {
+                Storage::delete('public/profile/' . $user->profile_photo);
+            }
+            $user->profile_photo = '';
+            $user->save();
 
         }
 

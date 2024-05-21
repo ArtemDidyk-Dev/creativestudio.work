@@ -107,7 +107,7 @@
                             <!-- /About Tab Content -->
                             @endif
 
-                            <!-- Projects Tab Content -->
+                            <!-- Services Tab Content -->
                             <div role="tabpanel" id="project" class="tab-pane fade active show ">
                                 <div class="pro-post widget-box company-post" >
                                 <h3 class="pro-title">{{ language('Projects') }}</h3>
@@ -179,7 +179,7 @@
                                         @endforeach
 
                                     @else
-                                        <p>{{ language('No Projects') }}</p>
+                                        <p>{{ language('No Services') }}</p>
                                     @endif
 
                                 <!-- pagination -->

@@ -24,9 +24,15 @@
                             <div class="reviews">
                                 @if($reviews)
                                     @foreach($reviews as $review)
+                                    
                                         <div class="review-content no-padding">
                                             <h4>
-                                                <a href="{{ route('frontend.profile.index', $review->id) }}">{{ $review->user_name }}</a>
+                                                @if ($review->role_id < 2 )
+                                                    {{ $review->user_name }}
+                                                @else
+                                                    <a href="{{ route('frontend.profile.index', $review->from) }}">{{ $review->user_name }}</a>
+                                                @endif
+                                               
                                             </h4>
                                             <div class="rating mb-2">
                                                 <span class="average-rating">{{ $review->rating_view }}</span>

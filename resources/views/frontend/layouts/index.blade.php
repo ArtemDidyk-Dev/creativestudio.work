@@ -58,6 +58,11 @@
 
 ]))
 <body class="dashboard-page">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3MM5P3V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 @endif
 @if(Route::is([
     'frontend.forgot.index',
@@ -69,6 +74,12 @@
     'frontend.forgot.password_resets'
 ]))
 <body class="account-page">
+
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3MM5P3V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 @endif
 
 @include('frontend.layouts.partials.header')

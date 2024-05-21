@@ -30,7 +30,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="invoice-logo">
-                                            <img src="/images/logo.svg" alt="">
+                                            <img src="/images/logo.png" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-6">

@@ -1,8 +1,9 @@
 @extends('frontend.layouts.index')
 
-@section('title',empty(language('frontend.dashboard.title')) ? language('frontend.dashboard.name') : language('frontend.dashboard.title'))
-@section('keywords', language('frontend.dashboard.keywords') )
-@section('description',language('frontend.dashboard.description') )
+@section('title', empty(language('frontend.dashboard.title')) ? language('frontend.dashboard.name') :
+    language('frontend.dashboard.title'))
+@section('keywords', language('frontend.dashboard.keywords'))
+@section('description', language('frontend.dashboard.description'))
 
 
 @section('content')
@@ -28,21 +29,41 @@
                         </div>
                         <div class="card-body">
                             <div class="reviews company-review">
-                                @if($reviews)
-                                    @foreach($reviews as $review)
+                                @if ($reviews)
+                                    @foreach ($reviews as $review)
+                                        @if ($review->role_id < 2)
+                                            {{ $review->user_name }}
+                                        @else
+                                            <a
+                                                href="{{ route('frontend.profile.index', $review->from) }}">{{ $review->user_name }}</a>
+                                        @endif
                                         <div class="review-content no-padding">
                                             <p class="mb-0">{!! $review->review !!}</p>
                                             <div class="review-top tab-reviews d-flex align-items-center">
                                                 <div class="review-img">
-                                                    <a href="{{ route('frontend.profile.index', $review->id) }}"><img class="img-fluid" src="{{ $review->user_profile_photo }}" alt="{{ $review->user_name }}"></a>
+                                                    @if ($review->role_id < 2)
+                                                        <a><img class="img-fluid" src="{{ $review->user_profile_photo }}"
+                                                                alt="{{ $review->user_name }}"></a>
+                                                    @else
+                                                        <a href="{{ route('frontend.profile.index', $review->from) }}"><img
+                                                                class="img-fluid" src="{{ $review->user_profile_photo }}"
+                                                                alt="{{ $review->user_name }}"></a>
+                                                    @endif
                                                 </div>
                                                 <div class="review-info">
-                                                    <h3><a href="{{ route('frontend.profile.index', $review->id) }}">{{ $review->user_name }}</a></h3>
+                                                    <h3>
+                                                        @if ($review->role_id < 2)
+                                                            {{ $review->user_name }}
+                                                        @else
+                                                            <a
+                                                                href="{{ route('frontend.profile.index', $review->from) }}">{{ $review->user_name }}</a>
+                                                        @endif
+                                                    </h3>
                                                     <h5>{{ $review->created_at_view }}</h5>
                                                 </div>
                                                 <div class="rating">
                                                     <span class="rating-stars"
-                                                          data-rating="{{ $review->rating_view }}"></span>
+                                                        data-rating="{{ $review->rating_view }}"></span>
                                                     <span class="average-rating">{{ $review->rating_view }}</span>
                                                 </div>
                                             </div>
@@ -67,12 +88,12 @@
 
 @section('CSS')
     <!-- RateIt CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/star-rating-svg/css/star-rating-svg.css')}}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/star-rating-svg/css/star-rating-svg.css') }}">
 @endsection
 
 @section('JS')
     <!-- RateIt JS -->
-    <script src="{{ asset('frontend/assets/plugins/star-rating-svg/jquery.star-rating-svg.js')}}"></script>
+    <script src="{{ asset('frontend/assets/plugins/star-rating-svg/jquery.star-rating-svg.js') }}"></script>
     <script>
         $(".rating .rating-stars").starRating({
             starSize: 20,
@@ -83,4 +104,3 @@
         });
     </script>
 @endsection
-

@@ -140,6 +140,17 @@
 																		</span>
                                                     </a>
                                                 </li>
+                                                 <li
+                                                    class="navi-item edit"
+                                                >
+                                                    <a href="{{route('admin.pay.edit', $pay)}}"
+                                                       class="navi-link text-center">
+																		<span class="navi-text">
+																			<span
+                                                                                class="label label-xl label-inline label-light-primary">Edit</span>
+																		</span>
+                                                    </a>
+                                                </li>
 
                                             </ul>
                                             <!--end::Navigation-->

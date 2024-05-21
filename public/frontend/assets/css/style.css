@@ -12266,7 +12266,13 @@ label.file-upload input[type="file"] {
     flex-wrap: wrap;
     position: relative;
     margin-top: 25px;
+    z-index: 0;
     
+}
+@media(max-width: 991px) {
+    .chat-window {
+        margin-top: 0px;
+    }
 }
 
 .chat-cont-left {

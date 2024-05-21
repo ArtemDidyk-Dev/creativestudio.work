@@ -1,7 +1,7 @@
 @extends('frontend.layouts.index')
 
-@section('title', empty(language('frontend.dashboard.title')) ? language('frontend.dashboard.name') :
-    language('frontend.dashboard.title'))
+@section('title', empty(language('frontend.dashboard.chat')) ? language('frontend.dashboard.name') :
+    language('frontend.dashboard.chat'))
 @section('keywords', language('frontend.dashboard.keywords'))
 @section('description', language('frontend.dashboard.description'))
 
@@ -66,7 +66,7 @@
                                                                     <i class="fa fa-paperclip"></i>
                                                                 @endif
                                                                 @if ($chat['last_messages'])
-                                                                    {{ $chat['last_messages'] }}
+                                                                    {!! $chat['last_messages']  !!}
                                                                 @endif
                                                             </div>
                                                         @endif
@@ -103,8 +103,8 @@
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name"></div>
                                         <div class="user-status">
-                                            @if (!empty($chat))
-                                                <a href="{{ route('frontend.profile.index', $chat['users_id']) }}" target="_blank">{{ language('view profile') }}</a> 
+                                            @if (!empty($chat) && $user->role_id <= 2)
+                                                <a href="{{ route('frontend.profile.index', $chat_open ?? $chat['users_id']) }}" target="_blank">{{ language('view profile') }}</a>
                                             @endif
                                         </div>
                                     </div>
@@ -218,14 +218,7 @@
 
                                 <div class="feedback-form">
                                     <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label for="project_id">{{ language('Projects list') }}</label>
-                                            <select class="form-control select" name="project_id" id="project_id"
-                                                required="required" disabled>
-                                                <option value="">{{ language('--Select Projects--') }}</option>
-                                            </select>
-                                            <span class="text-danger"></span>
-                                        </div>
+
                                         <div class="col-md-6 form-group">
                                             <label for="price">{{ language('Your Price') }}</label>
                                             <input name="price" id="price" type="number" min="0"
@@ -501,7 +494,7 @@
             outline: none;
         }
         span.select2.select2-container.select2-container--default.select2-container--below.select2-container--focus {
-            border: none !important;  
+            border: none !important;
         }
     </style>
 @endsection
@@ -817,7 +810,7 @@
             $('.chat-window .chat-cont-right .chat-header .user-name').text(user_name);
             // $('.chat-window .chat-cont-right .chat-header .user-status a').attr('href', '/profile/' + user_id);
             if (user_role_id > 2 || user_role_id == 0) {
-                $('.chat-window .chat-cont-right .chat-header .user-status a').attr('href', user_profile_link);    
+                $('.chat-window .chat-cont-right .chat-header .user-status a').attr('href', user_profile_link);
                 $('.chat-window .chat-cont-right .chat-header .user-status a').css("display", "block");
             }
             else {
@@ -921,13 +914,13 @@
     @if ($chat_open)
         <script>
             function chatOpen(user_id) {
-                
+
                 let user_profile_photo = $('.chat-window .chat-users-list .chat-user_id_' + user_id).data('user_profile_photo');
                 let user_name = $('.chat-window .chat-users-list .chat-user_id_' + user_id).data('user_name');
                 $('.chat-window .chat-cont-right .chat-header').addClass('d-none');
                 $('.chat-window .chat-cont-right .chat-body').addClass('d-none');
                 $('.chat-window .chat-cont-right .chat-footer').addClass('d-none');
-               
+
                 $('.chat-window .chat-cont-right .chat-header .avatar-img').attr('src', user_profile_photo);
                 $('.chat-window .chat-cont-right .chat-header .avatar-img').attr('alt', user_name);
                 $('.chat-window .chat-cont-right .chat-header .user-name').text(user_name);
@@ -1051,12 +1044,12 @@
 
                 if (payment_url_generator_form.valid() == true) {
 
-                    let project_id = $('#payment_url').find('#project_id').val();
+
                     let price = $('#payment_url').find('#price').val();
                     let hours = $('#payment_url').find('#hours').val();
                     let letter = $('#payment_url').find('#letter').val();
                     let agree = $('#payment_url').find('#agree').val();
-
+                    let employer_id = $('#user_to').val();
 
                     $('#payment_url').find('#project_id').prop("disabled", true);
                     $('#payment_url').find('#price').prop("disabled", true);
@@ -1069,11 +1062,11 @@
                         url: '{{ route('frontend.dashboard.freelancer.project-proposals.store.ajax') }}',
                         type: 'POST',
                         data: {
-                            project_id: project_id,
                             price: price,
                             hours: hours,
                             letter: letter,
                             agree: agree,
+                            employer_id: employer_id,
                             _token: "{{ csrf_token() }}",
                         },
                         dataType: 'json',

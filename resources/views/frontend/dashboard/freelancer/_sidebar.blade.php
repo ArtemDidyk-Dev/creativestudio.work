@@ -56,15 +56,7 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="{{ route('frontend.dashboard.freelancer.favourites') }}" class="nav-link{{ Route::is(
-                                                        [
-                                                        'frontend.dashboard.freelancer.favourites',
-                                                        ]
-                                                        )? " active" : "" }}">
-                    <i class="material-icons">local_play</i> {{ language('frontend.dashboard.favourites') }}
-                </a>
-            </li>
+           
             <li class="nav-item">
                 <a href="{{ route('frontend.dashboard.freelancer.reviews') }}" class="nav-link{{ Route::is(
                                                         [
@@ -93,6 +85,7 @@
                     <span class="message-sidebar badge bgg-yellow badge-pill ms-1" @if($message_count == 0) style="display: none" @endif >{{ $message_count }}</span>
                 </a>
             </li>
+            
 {{--            <li class="nav-item">--}}
 {{--                <a href="{{ route('frontend.dashboard.freelancer.membership') }}" class="nav-link{{ Route::is(--}}
 {{--                                                        [--}}

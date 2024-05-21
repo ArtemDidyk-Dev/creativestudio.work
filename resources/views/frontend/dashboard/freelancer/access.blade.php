@@ -218,7 +218,7 @@
         }
 
         .form-container-accets form button {
-            background: var(--color-blue);
+            background: var(--color-main);
             color: #fff;
             padding: 10px 15px;
             border: none;
@@ -227,7 +227,7 @@
         }
 
         .form-container-accets form button:hover {
-            background: var(--color-blue);
+            background: var(--color-main);
         }
 
         .accordion-content.active  {

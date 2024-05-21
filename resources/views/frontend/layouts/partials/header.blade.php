@@ -3,7 +3,7 @@
         <div class="header__inner">
             <div class="header__left">
                 <a href="{{ route('frontend.home.index') }}" class="header__logo">
-                    <img width="220" height="30" src="{{ asset('build/website/images/logo.png') }}" alt="logo">
+                    <img width="112" height="112" src="{{ asset('build/website/images/logo.png') }}" alt="logo">
                 </a>
             </div>
             <div class="header__right">

@@ -111,6 +111,14 @@
                                                         @error('password_confirmation' )<span class="text-danger">{{ $message }}</span> @enderror
                                                     </div>
                                                 </div>
+                                                
+                                                 <div class="form-group row">
+                                                    <label for="password_confirmation" class="col-lg-3 col-form-label">Balance</label>
+                                                    <div class="col-lg-9">
+                                                        <input id="password_confirmation" type="number" name="balance" value="{{ old('balance',$user->balance) }}"
+                                                               class="form-control form-control-lg" placeholder="Balance"/>
+                                                    </div>
+                                                </div>
 
 
                                                 <br/>
