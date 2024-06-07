@@ -5,6 +5,10 @@
             <a href="{{ route('frontend.home.index') }}" class="footer__left-logo">
                 <img width="172" height="30"  src="{{ asset('build/website/images/logo.png') }}" alt="logo">
             </a>
+              <div class="footer__left-payment">
+                  <img width="31" height="25" src="{{ asset('build/website/images/icons/master.png') }}" alt="master card">
+                  <img width="36" height="23" src="{{ asset('build/website/images/icons/visa.png') }}" alt="visa">
+              </div>
               <div class="footer__left-copyright">
                   {!! setting('copyright', true) !!}
               </div>

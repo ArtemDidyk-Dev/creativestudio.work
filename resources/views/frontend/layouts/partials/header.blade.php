@@ -887,6 +887,11 @@
     .footer__contacts-item+.footer__contacts-item {
         margin-top: 12px;
     }
+    .footer__left-payment {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
 </style>
 
 <script>

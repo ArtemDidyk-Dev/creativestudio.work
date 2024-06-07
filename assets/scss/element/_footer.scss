@@ -7,7 +7,7 @@
         @media (max-width: 1060px){
             flex-direction: column;
         }
-    } 
+    }
     &__left {
         max-width: 171px;
         width: 100%;
@@ -21,7 +21,12 @@
             margin-right: 10px;
             margin-top: 30px;
         }
-    }  
+    }
+    &__left-payment {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
     &__left-logo {
         font-size: 24px;
         line-height: 22px;
@@ -31,7 +36,7 @@
             font-size: 21px;
             line-height: 0px;
         }
-    } 
+    }
     &__left-copyright {
         margin-top: 15px    ;
         font-size: 13px;
@@ -77,7 +82,7 @@
             margin-left: -10px;
             flex-wrap: wrap;
         }
-        
+
     }
 
     &__right-item {
@@ -93,7 +98,7 @@
             margin-left: 10px;
             margin-bottom: 10px;
         }
-        
+
         &.contacts {
             flex-basis: calc(35% - 50px);
             @media #{$mq-tablet} {
@@ -116,7 +121,7 @@
         margin-bottom: 18px;
         @media #{$mq-mobile-sm} {
             font-size: 12px;
-            line-height: 16px; 
+            line-height: 16px;
             margin-bottom: 10px;
         }
     }
@@ -165,9 +170,9 @@
                 margin-right: 10px;
                 @media (max-width: 700px){
                     margin-right: 0px;
-                    width: 19px;    
+                    width: 19px;
                 }
-                   
+
             }
             @media #{$mq-mobile-sm} {
                 font-size: 14px;
