@@ -528,16 +528,16 @@
                                                 style="border-collapse:collapse; border-color:transparent">
                                                 <table width="100%" cellpadding="0" cellspacing="0"
                                                        id="wout_block_out_block_15"
-                                                       style="border-collapse:collapse; font-size:14px; line-height:1.5; text-color:black; font-weight:normal; color:#032575; margin:0">
+                                                       style="border-collapse:collapse; font-size:14px; line-height:1.5; text-color:black; font-weight:normal; color:#B34D75; margin:0">
                                                     <tbody>
                                                     <tr class="content-row"
                                                         style="border-color:transparent; color:#444; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif">
                                                         <td class="content-cell" width="275"
                                                             style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:10px; padding-right:15px; padding-top:10px; padding-bottom:1px"
                                                             valign="top"><p
-                                                                style="line-height:1.5; margin:0 0 10px; font-size:26px; color:#032575; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif; text-transform:uppercase; font-weight:normal; padding:0">
+                                                                style="line-height:1.5; margin:0 0 10px; font-size:26px; color:#B34D75; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif; text-transform:uppercase; font-weight:normal; padding:0">
                                                                 <span
-                                                                    style="font-size: 26px; text-transform: uppercase; color: #032575; font-weight: bolder;"><strong
+                                                                    style="font-size: 26px; text-transform: uppercase; color: #B34D75; font-weight: bolder;"><strong
                                                                         style="font-weight: bolder;">{{ language('frontend.registermail.registration_complation') }}</strong></span>
                                                             </p>
                                                             <div
@@ -558,14 +558,14 @@
                                                 style="border-collapse:collapse; border-color:transparent">
                                                 <table width="100%" cellpadding="0" cellspacing="0"
                                                        id="wout_block_out_block_17"
-                                                       style="border-collapse:collapse; font-size:14px; line-height:1.5; text-color:black; font-weight:normal; color:#778ff9; margin:0">
+                                                       style="border-collapse:collapse; font-size:14px; line-height:1.5; text-color:black; font-weight:normal; color:#B34D75; margin:0">
                                                     <tbody>
                                                     <tr class="content-row"
                                                         style="border-color:transparent; color:#444; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif">
                                                         <td class="content-cell" width="275"
                                                             style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:10px; padding-right:15px; padding-top:1px; padding-bottom:5px"
                                                             valign="top"><p
-                                                                style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#778ff9; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif; font-weight:normal; padding:0">
+                                                                style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#B34D75; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif; font-weight:normal; padding:0">
                                                                 {{ language('frontend.registermail.conform_registration_click') }}</p>
                                                             <div
                                                                 style="font-size:14px; line-height:1.5; clear:both"></div>
@@ -594,7 +594,7 @@
                                                             <table cellpadding="0" border="0" cellspacing="0"
                                                                    align="left" class="sp-button flat fixed-width"
                                                                    width="100% !important"
-                                                                   style="border-collapse:collapse; font-size:14px; line-height:1.5; border-color:#ddd; border-width:1px; border-style:solid; border:0; width:100% !important; max-width:200px !important; border-radius:30px; box-shadow:none; background:#778ff9">
+                                                                   style="border-collapse:collapse; font-size:14px; line-height:1.5; border-color:#ddd; border-width:1px; border-style:solid; border:0; width:100% !important; max-width:200px !important; border-radius:30px; box-shadow:none; background:#B34D75">
                                                                 <tbody>
                                                                 <tr style="border-color:transparent">
                                                                     <td class="sp-button-text"
@@ -629,75 +629,7 @@
                                         </tbody>
                                     </table>
                                 </th>
-                                <th width="300"
-                                    style="border-color:transparent; font-weight:400; text-align:left; vertical-align:top"
-                                    cellpadding="0" cellspacing="0" class="tc" align="left" valign="top">
-                                    <table border="0" width="100%" cellpadding="0" cellspacing="0"
-                                           style="border-collapse:collapse; font-size:14px; line-height:1.5; background-color:transparent">
-                                        <tbody>
-                                        <tr style="border-color:transparent">
-                                            <td cellpadding="0" cellspacing="0"
-                                                style="border-collapse:collapse; border-color:transparent">
-                                                <table class="separator" width="100%" cellpadding="0" cellspacing="0"
-                                                       style="border-collapse:collapse; font-size:14px; line-height:1.5; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; height:10px"
-                                                       height="10">
-                                                    <tbody>
-                                                    <tr style="border-color:transparent">
-                                                        <td height="10"
-                                                            style="border-collapse:collapse; border-color:transparent"></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <table border="0" width="100%" cellpadding="0" cellspacing="0"
-                                           style="border-collapse:collapse; font-size:14px; line-height:1.5; background-color:transparent">
-                                        <tbody>
-                                        <tr style="border-color:transparent">
-                                            <td cellpadding="0" cellspacing="0"
-                                                style="border-collapse:collapse; border-color:transparent">
-                                                <table width="100%" cellpadding="0" cellspacing="0"
-                                                       id="wout_block_14_element_0"
-                                                       style="border-collapse:collapse; font-size:14px; line-height:1.5">
-                                                    <tbody>
-                                                    <tr class="content-row"
-                                                        style="border-color:transparent; color:#444; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif">
-                                                        <td class="content-cell padding-bottom-0" width="270"
-                                                            style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:30px; padding-right:0; padding-top:10px; padding-bottom:0"
-                                                            valign="top">
-                                                            <div id="wout_block_14_element_0"
-                                                                 style="font-size:14px; line-height:1.5; width:100%; height:220; display:block; text-align:center"
-                                                                 width="100%" height="220" align="center">
-                                                                <center><img border="0" width="270" height="auto"
-                                                                             class="desktop  sp-img small_img "
-                                                                             align="center" alt="confirm-mail"
-                                                                             src="{{ asset('assets/images/mail/confirm-mail.png') }}"
-                                                                             iout_block_14_element_0=""
-                                                                             style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; display:block; -ms-interpolation-mode:bicubic">
-                                                                    <!--[if !mso]><!-->
-                                                                    <div
-                                                                        style="font-size:14px; line-height:1.5; mso-hide:all">
-                                                                        <img border="0" width="100%" height="auto"
-                                                                             class="mobile  sp-img small_img "
-                                                                             align="center" alt="confirm-mail"
-                                                                             src="{{ asset('assets/images/mail/confirm-mail.png') }}"
-                                                                             iout_block_14_element_0=""
-                                                                             style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; -ms-interpolation-mode:bicubic; display:none; width:100%; max-width:270px">
-                                                                    </div><!--<![endif]--></center>
-                                                            </div>
-                                                            <div
-                                                                style="font-size:14px; line-height:1.5; clear:both"></div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </th>
+
                             </tr>
                             </tbody>
                         </table>
@@ -718,7 +650,7 @@
                                                 <div class="block-divider"
                                                      style="font-size:14px; line-height:1.5; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0">
                                                     <hr id="iout_block_13_element_0"
-                                                        style="margin:0; border-top-style:solid; border-top-width:3px; border-top-color:#638be2; border-bottom:0; border-left:0; border-right:0">
+                                                        style="margin:0; border-top-style:solid; border-top-width:3px; border-top-color:#B34D75; border-bottom:0; border-left:0; border-right:0">
                                                 </div>
                                             </td>
                                         </tr>
@@ -734,35 +666,7 @@
                                                        id="wout_block_21_element_0"
                                                        style="border-collapse:collapse; font-size:14px; line-height:1.5">
                                                     <tbody>
-                                                    <tr class="content-row"
-                                                        style="border-color:transparent; color:#444; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif">
-                                                        <td class="content-cell padding-top-0" width="570"
-                                                            style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:15px; padding-right:15px; padding-top:0; padding-bottom:40px"
-                                                            valign="top">
-                                                            <div id="wout_block_21_element_0"
-                                                                 style="font-size:14px; line-height:1.5; width:100%; height:31; display:block; text-align:center"
-                                                                 width="100%" height="31" align="center">
-                                                                <center><img border="0" width="401" height="auto"
-                                                                             class="desktop  sp-img " align="center"
-                                                                             alt="bg-underline"
-                                                                             src="{{ asset('assets/images/mail/bg-underline.png') }}"
-                                                                             iout_block_21_element_0=""
-                                                                             style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; display:block; -ms-interpolation-mode:bicubic">
-                                                                    <!--[if !mso]><!-->
-                                                                    <div
-                                                                        style="font-size:14px; line-height:1.5; mso-hide:all">
-                                                                        <img border="0" width="100%" height="auto"
-                                                                             class="mobile  sp-img " align="center"
-                                                                             alt="bg-underline"
-                                                                             src="{{ asset('assets/images/mail/bg-underline.png') }}"
-                                                                             iout_block_21_element_0=""
-                                                                             style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; -ms-interpolation-mode:bicubic; display:none; width:100%; max-width:401px">
-                                                                    </div><!--<![endif]--></center>
-                                                            </div>
-                                                            <div
-                                                                style="font-size:14px; line-height:1.5; clear:both"></div>
-                                                        </td>
-                                                    </tr>
+
                                                     </tbody>
                                                 </table>
                                             </td>

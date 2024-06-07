@@ -528,16 +528,16 @@
                                                 style="border-collapse:collapse; border-color:transparent">
                                                 <table width="100%" cellpadding="0" cellspacing="0"
                                                        id="wout_block_out_block_15"
-                                                       style="border-collapse:collapse; font-size:14px; line-height:1.5; text-color:black; font-weight:normal; color:#032575; margin:0">
+                                                       style="border-collapse:collapse; font-size:14px; line-height:1.5; text-color:black; font-weight:normal; color:#B34D75; margin:0">
                                                     <tbody>
                                                     <tr class="content-row"
                                                         style="border-color:transparent; color:#444; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif">
                                                         <td class="content-cell" width="275"
                                                             style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:10px; padding-right:15px; padding-top:10px; padding-bottom:1px"
                                                             valign="top"><p
-                                                                style="line-height:1.5; margin:0 0 10px; font-size:26px; color:#032575; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif; text-transform:uppercase; font-weight:normal; padding:0">
+                                                                style="line-height:1.5; margin:0 0 10px; font-size:26px; color:#B34D75; font-family:&quot;Segoe UI&quot;, Segoe, &quot;Avenir Next&quot;, &quot;Open Sans&quot;, Corbel, sans-serif; text-transform:uppercase; font-weight:normal; padding:0">
                                                                 <span
-                                                                    style="font-size: 26px; text-transform: uppercase; color: #032575; font-weight: bolder;"><strong
+                                                                    style="font-size: 26px; text-transform: uppercase; color: #B34D75; font-weight: bolder;"><strong
                                                                         style="font-weight: bolder;">{{ language('frontend.forgotmail.password_recovery') }}</strong></span>
                                                             </p>
                                                             <div

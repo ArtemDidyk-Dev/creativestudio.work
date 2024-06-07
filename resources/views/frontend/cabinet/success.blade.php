@@ -10,9 +10,9 @@
     <!-- Page Content -->
     <div class="content">
         <div class="container">
-            <div class="account-onborad complte-board back-home">
+            <div class="account-onborad complte-board back-home" style="box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.30); border-radius: 15px;">
                 @if($data['status'] == true)
-                    <img src="{{ asset('frontend/assets/images/select-03.png') }}" class="img-fluid" alt="">
+                    <img width="220" height="30" src="{{ asset('build/website/images/logo.png') }}" alt="{{ language('general.title') }}" class="img-fluid">
                 @else
                     <img src="{{ asset('frontend/assets/images/warning.png') }}" class="img-fluid" alt="">
                 @endif
@@ -46,10 +46,10 @@
                 <p>{{ $data['message'] }}</p>
 
                 @if($data['status'] == true)
-                    <a href="{{ route('frontend.login.index') }}"
+                    <a href="{{ route('frontend.login.index') }}" style="border-radius: 50px"
                        class="btn btn-primary">{{ language('frontend.register.sign_in') }}</a>
                 @else
-                    <a href="{{ route('frontend.home.index') }}"
+                    <a href="{{ route('frontend.home.index') }}" style="border-radius: 50px"
                        class="btn btn-primary"> {{ language('frontend.common.back_to_home') }}</a>
                 @endif
             </div>

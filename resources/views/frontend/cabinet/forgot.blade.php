@@ -10,7 +10,10 @@
     <!-- Page Content -->
     <div class="content">
         <div class="container">
-
+            <div class="login-header text-center">
+                <h3 style="color: #B34D75">{{ language('frontend.register.join_freelance') }}</h3>
+                <p>{{ language('frontend.register.text1') }}</p>
+            </div>
             <div class="row">
                 <div class="col-md-6 offset-md-3">
 
@@ -18,11 +21,6 @@
                     <div class="account-content">
                         <div class="align-items-center justify-content-center">
                             <div class="login-right">
-                                <div class="login-header text-center">
-                                    <a href="{{route('frontend.home.index')}}"><img width="220" height="30" src="{{ asset('build/website/images/logo.png') }}" alt="{{ language('general.title') }}" class="img-fluid"></a>
-                                    <h3>{{ language('frontend.forgot.find_your_account') }}</h3>
-                                    <p>{{ language('frontend.forgot.text1') }}</p>
-                                </div>
 
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
@@ -38,7 +36,7 @@
                                     @csrf
 
                                     <div class="form-group form-focus">
-                                        <input name="email" type="email" class="form-control floating" value="{{ old('email', $user->email) }}">
+                                        <input style="border-radius: 20px" name="email" type="email" class="form-control floating" value="{{ old('email', $user->email) }}">
                                         <label class="focus-label">{{ language('frontend.forgot.your_email') }}</label>
                                         @if($errors->has('email'))
                                             <div class="error text-danger">{{ $errors->first('email') }}</div>
@@ -69,7 +67,24 @@
 
 
 @section('CSS')
+    <style>
+        .account-content {
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.30);
+        }
+
+        .from-group__wrapper {
+            display: flex;
+            gap: 30px;
+        }
+
+        .from-group__wrapper .form-group.form-focus {
+            width: 50%;
+        }
+    </style>
 @endsection
+
 
 @section('JS')
 @endsection
