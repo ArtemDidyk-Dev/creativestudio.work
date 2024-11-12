@@ -52,7 +52,7 @@
                                                             <div class="proposer-detail">
                                                                 <h4>
                                                                     <a
-                                                                       target="_blank">{{ $project->employer->name }}</a>
+                                                                        target="_blank">{{ $project->employer->name }}</a>
                                                                 </h4>
 
                                                             </div>
@@ -65,10 +65,10 @@
                                                     </div>
                                                 </div>
                                                 @if( $project->letter)
-                                                <div class="description-proposal ps-0 pe-0">
-                                                    <h5 class="desc-title">Hired Letter</h5>
-                                                    <p>{{ $project->letter }}</p>
-                                                </div>
+                                                    <div class="description-proposal ps-0 pe-0">
+                                                        <h5 class="desc-title">Hired Letter</h5>
+                                                        <p>{{ $project->letter }}</p>
+                                                    </div>
                                                 @endif
                                             </div>
                                         </div>
@@ -84,7 +84,9 @@
                                                             data-bs-toggle="modal"
                                                             href="#accept-project"
                                                             class="btn btn-success projects-btn project d-inline-block hiredAccept"
-                                                            data-employer_id="{{ $project->employer->id }}">
+                                                            data-employer_id="{{ $project->employer->id }}"
+                                                            data-id={{$project->id}}
+                                                        >
                                                             <i class="fas fa-check"></i>
                                                             {{ language('Accept') }}
                                                         </a>
@@ -92,7 +94,9 @@
                                                             data-bs-toggle="modal"
                                                             href="#cancel-project"
                                                             class="btn btn-danger projects-btn project d-inline-block hiredCancel"
-                                                            data-employer_id="{{ $project->employer->id }}">
+                                                            data-employer_id="{{ $project->employer->id }}"
+                                                            data-id={{$project->id}}
+                                                        >
                                                             <i class="fas fa-ban"></i>
                                                             {{ language('Cancel') }}
                                                         </a>
@@ -147,9 +151,8 @@
 
                     <form id="accept-form" action="{{ route('frontend.dashboard.freelancer.project-hireds.accept') }}" method="POST">
                         @csrf
-
                         <input class="employer_id" type="hidden" name="employer_id" value="">
-
+                        <input type="hidden"  name="id" value="id" class="id"  >
                         <div class="submit-section text-right">
                             <a data-bs-dismiss="modal" class="btn btn-primary black-btn submit-btn">{{ language('Cancel') }}</a>
                             <button type="submit" class="btn btn-primary submit-btn"><i class="fas fa-check"></i> {{ language('Accept') }}</button>
@@ -190,7 +193,7 @@
                         @csrf
 
                         <input class="employer_id" type="hidden" name="employer_id" value="">
-
+                        <input class="id" type="hidden" name="id" value="">
                         <div class="submit-section text-right">
                             <a data-bs-dismiss="modal" class="btn btn-primary black-btn submit-btn">{{ language('No') }}</a>
                             <button type="submit" class="btn btn-primary submit-btn">{{ language('Yes') }}</button>
@@ -213,14 +216,20 @@
         $('.hiredAccept').on('click', function (event) {
             let employer_id = $(this).data('employer_id');
             $('#accept-project .employer_id').val(employer_id);
+
+            let id = $(this).data('id');
+            $('#accept-project .id').val(id);
+
         });
 
         $('.hiredCancel').on('click', function (event) {
             let employer_id = $(this).data('employer_id');
             $('#cancel-project .employer_id').val(employer_id);
+
+            let id = $(this).data('id');
+            $('#cancel-project .id').val(id);
         });
     </script>
 
     @include('frontend.dashboard.freelancer._projectNavScript', ['user' => $user])
 @endsection
-
